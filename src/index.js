@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import {GlobalStyle} from './styles';
 
-class App extends React.Component {
-  render() {
-    return <div>Hello World</div>;
-  }
-}
+const App = () => (
+  <div>
+    <GlobalStyle />
+    <div>Hello World</div>
+  </div>
+);
 
 ReactDOM.render(<App />, document.getElementById('app'));
