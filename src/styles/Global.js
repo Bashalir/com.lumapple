@@ -1,7 +1,7 @@
 import {createGlobalStyle} from 'styled-components';
 import {primaryFont} from './typography';
 import {normalize} from 'polished';
-import reset from 'styled-reset';
+import reset from './reset.css';
 
 export const GlobalStyle = createGlobalStyle`
 ${reset}
