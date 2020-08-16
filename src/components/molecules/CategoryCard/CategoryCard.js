@@ -1,16 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {CardImage} from '../../atoms/card/Card';
+import Card from '../../atoms/card/Card';
 import {defaultTheme} from '../../../styles';
-import StyledCategoryCard from './style/StyledCategoryCard';
+import StyledCategoryCard from './styles/StyledCategoryCard';
 import Label from '../../atoms/label/Label';
 
 export default function CategoryCard({image, name}) {
   return (
     <StyledCategoryCard>
       <figure>
-        <CardImage image={image} name={name} />
+        <Card name={name}>
+          <img src={image} alt={name} />
+        </Card>
       </figure>
       <Label title={name} />
     </StyledCategoryCard>

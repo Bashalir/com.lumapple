@@ -2,7 +2,7 @@ import styled from 'styled-components'; //css
 
 const StyledPlus = styled.div`
 
-    background-image: url('${props => props.picto}');
+    background-image: url('${({picto}) => picto}');
     background-repeat: no-repeat;
     background-size:contain;
     background-position:center;
@@ -14,7 +14,7 @@ const StyledPlus = styled.div`
     z-index:1;
 
     ::after{
-        background-image: url('${props => props.picto}');
+        background-image: url('${({picto}) => picto}');
         background-repeat: no-repeat;
         background-size:contain;
         background-position:center;

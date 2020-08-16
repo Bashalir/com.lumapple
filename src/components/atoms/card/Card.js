@@ -4,14 +4,16 @@ import PropTypes from 'prop-types';
 import StyledCard from './styles/StyledCard';
 import {defaultTheme} from '../../../styles';
 
-const Card = ({height, width, textColor, backgroundColor}) => {
+const Card = ({height, width, textColor, backgroundColor, children}) => {
   return (
     <StyledCard
       height={height}
       width={width}
       textColor={textColor}
       backgroundColor={backgroundColor}
-    />
+    >
+      {children}
+    </StyledCard>
   );
 };
 
@@ -24,14 +26,14 @@ export const CardImage = ({
   backgroundColor,
 }) => {
   return (
-    <StyledCard
+    <Card
       height={height}
       width={width}
       textColor={textColor}
       backgroundColor={backgroundColor}
     >
       <img src={image} name={name} alt={name}></img>
-    </StyledCard>
+    </Card>
   );
 };
 
@@ -49,6 +51,7 @@ Card.propTypes = {
   height: PropTypes.string,
   textColor: PropTypes.string,
   backgroundColor: PropTypes.string,
+  children: PropTypes.node,
 };
 
 Card.defaultProps = {
