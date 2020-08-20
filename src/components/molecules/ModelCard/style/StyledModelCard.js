@@ -12,6 +12,7 @@ const StyledModelCard = styled.div`
   height: 110px;
 
   img {
+    z-index: 3;
     animation: photo-position--out 250ms;
     object-position: 100% 25px;
   }

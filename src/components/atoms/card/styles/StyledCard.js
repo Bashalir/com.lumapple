@@ -8,6 +8,7 @@ import {
 
 const StyledCard = styled.div`
   text-align: center;
+
   color: ${({textColor}) => textColor};
   display: flex;
   flex-direction: column;
@@ -22,6 +23,7 @@ const StyledCard = styled.div`
 
   ::before {
     ${resetPositionMixin}
+    background-color: ${defaultTheme.backgroundDefaultColor};
     z-index: 1;
     opacity: 1;
     content: '';
@@ -30,6 +32,7 @@ const StyledCard = styled.div`
     transition: opacity 750ms;
   }
   ::after {
+    background-color: ${defaultTheme.backgroundDefaultColor};
     z-index: -1;
     content: '';
     ${resetPositionMixin}

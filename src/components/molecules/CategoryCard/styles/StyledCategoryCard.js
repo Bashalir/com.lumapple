@@ -18,6 +18,7 @@ const StyledCategoryCard = styled.div`
   }
 
   img {
+    z-index: 3;
     width: 50px;
     height: 50px;
   }

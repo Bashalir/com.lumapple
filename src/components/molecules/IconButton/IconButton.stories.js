@@ -2,7 +2,7 @@ import React from 'react';
 
 import addPlus from '../../../assets/img/add_plus.svg';
 import {defaultTheme} from '../../../styles';
-import {IconButton, SellNow} from './IconButton';
+import IconButton, {SellNow} from './IconButton';
 
 export default {
   component: IconButton,

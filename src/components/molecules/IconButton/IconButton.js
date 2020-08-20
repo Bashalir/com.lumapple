@@ -6,13 +6,13 @@ import {defaultTheme} from '../../../styles';
 import StyledIcon from './styles/StyledIcon';
 import addPlus from './img/add_plus.svg';
 
-export const IconButton = ({
+export default function IconButton({
   name,
   backgroundColor,
   isInverted,
   textColor,
   icon,
-}) => {
+}) {
   return (
     <Button
       name={name}
@@ -23,7 +23,7 @@ export const IconButton = ({
       <StyledIcon picto={icon} />
     </Button>
   );
-};
+}
 
 export const SellNow = () => {
   return (
@@ -32,6 +32,7 @@ export const SellNow = () => {
       name="Vendez maintenant"
       icon={addPlus}
       isInverted="true"
+      className="sell_now"
     />
   );
 };

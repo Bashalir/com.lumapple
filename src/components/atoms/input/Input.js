@@ -27,6 +27,14 @@ export const Input = ({
   );
 };
 
+Input.defaultProps = {
+  placeholder: '',
+  backgroundColor: defaultTheme.backgroundDefaultColor,
+  textColor: defaultTheme.textColor,
+  width: '100%',
+  height: '45px',
+};
+
 Input.propTypes = {
   placeholder: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
@@ -35,12 +43,4 @@ Input.propTypes = {
   textColor: PropTypes.string,
   backgroundColor: PropTypes.string,
   children: PropTypes.node,
-};
-
-Input.defaultProps = {
-  placeholder: '',
-  backgroundColor: defaultTheme.backgroundDefaultColor,
-  textColor: defaultTheme.textColor,
-  width: '50vw',
-  height: '45px',
 };

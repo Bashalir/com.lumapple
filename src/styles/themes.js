@@ -6,6 +6,7 @@ export const defaultTheme = {
   primaryColorDarken: green[300],
   textColor: neutral[500],
   textColorInverted: neutral[100],
+  textSecondaryColor: neutral[400],
   backgroundDefaultColor: neutral[200],
   backgroundInvertedColor: green[200],
   shadowLightPrimaryColor: neutral[100],

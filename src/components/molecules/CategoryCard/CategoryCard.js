@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Card from '../../atoms/card/Card';
-import {defaultTheme} from '../../../styles';
 import StyledCategoryCard from './styles/StyledCategoryCard';
 import Label from '../../atoms/label/Label';
 
