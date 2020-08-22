@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import StyledProductCard from './styles/StyledProductCard';
 import Card from '../../atoms/card/Card';
+import StyledProductPhoto from './styles/StyledProductPhoto';
+import StyledProductInfos from './styles/StyledProductInfos';
 
 export default function ProductCard({
   photo,
@@ -15,10 +17,10 @@ export default function ProductCard({
   return (
     <StyledProductCard>
       <Card>
-        <div className="product_photo">
+        <StyledProductPhoto>
           <img src={photo} alt={name} />
-        </div>
-        <div className="product_infos">
+        </StyledProductPhoto>
+        <StyledProductInfos>
           <div className="product_description">
             <h5>{title}</h5>
             <br />
@@ -28,7 +30,7 @@ export default function ProductCard({
           <div className="product_price">
             <span>{price}</span>
           </div>
-        </div>
+        </StyledProductInfos>
       </Card>
     </StyledProductCard>
   );
