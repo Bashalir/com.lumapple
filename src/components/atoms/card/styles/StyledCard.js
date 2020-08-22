@@ -16,8 +16,8 @@ const StyledCard = styled.div`
   align-items: center;
   border: 0px;
   border-radius: 1em;
-  width: ${props => props.width};
-  height: ${props => props.height};
+  width: 75px;
+  height: 75px;
   position: relative;
   outline: 0;
 

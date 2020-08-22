@@ -1,5 +1,5 @@
 export const primaryFont = "'Nunito', sans-serif";
-
+export const secondaryFont = "'Open Sans', sans-serif";
 export const typeScale = {
   header1: '2.488em',
   header2: '2.074em',

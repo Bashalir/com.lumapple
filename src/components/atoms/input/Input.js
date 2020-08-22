@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {defaultTheme} from '../../../styles';
 import StyledInput from './styles/StyledInput';
 
-export const Input = ({
+export default function Input({
   placeholder,
   type,
   height,
@@ -12,7 +12,7 @@ export const Input = ({
   textColor,
   backgroundColor,
   children,
-}) => {
+}) {
   return (
     <StyledInput
       height={height}
@@ -25,7 +25,7 @@ export const Input = ({
       {children}
     </StyledInput>
   );
-};
+}
 
 Input.defaultProps = {
   placeholder: '',

@@ -5,13 +5,13 @@ import StyledButton from './styles/StyledButton';
 import StyledLabel from './styles/StyledLabel';
 import {defaultTheme} from '../../../styles';
 
-export const Button = ({
+export default function Button({
   name,
   backgroundColor,
   isInverted,
   textColor,
   children,
-}) => {
+}) {
   return (
     <StyledButton backgroundColor={backgroundColor} isInverted={isInverted}>
       {children}
@@ -20,7 +20,7 @@ export const Button = ({
       </StyledLabel>
     </StyledButton>
   );
-};
+}
 
 Button.defaultProps = {
   backgroundColor: defaultTheme.backgroundDefaultColor,

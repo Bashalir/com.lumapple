@@ -7,7 +7,8 @@ const StyledLabel = styled.span`
   text-align: center;
   position: relative;
   z-index: 1;
-
+  white-space: nowrap;
+  
   ::after {
     text-align: center;
     content: "${props => props.name}";

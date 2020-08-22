@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Input} from '../../atoms/index';
+import Input from '../../atoms/input/Input';
 import StyledSearchInput from './styles/StyledSearchInput';
 import {SearchIcon} from './img/SearchIcon';
 
