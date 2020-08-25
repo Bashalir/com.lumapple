@@ -15,7 +15,6 @@ const StyledButton = styled.button`
   cursor: pointer;
   border: 0px;
   border-radius: 3em;
-  margin: 0px 10px;
   font-family: ${defaultTheme.primaryFont};
   background: ${props => props.backgroundColor};
   color: ${props =>
@@ -51,12 +50,7 @@ const StyledButton = styled.button`
     }
   }
   :active {
-    span {
-      transform: scale(0.98);
-    }
-    div {
-      transform: scale(0.95);
-    }
+    transform: scale(0.98);
   }
 `;
 

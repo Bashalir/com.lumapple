@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import {defaultTheme} from '../../../styles';
 import StyledIcon from './styles/StyledIcon';
+import StyledButton from './styles/StyledButton';
 import addPlus from './img/add_plus.svg';
 import Button from '../../atoms/button/Button';
 
@@ -14,14 +15,16 @@ export default function IconButton({
   icon,
 }) {
   return (
-    <Button
-      name={name}
-      backgroundColor={backgroundColor}
-      textColor={textColor}
-      isInverted={isInverted}
-    >
-      <StyledIcon picto={icon} />
-    </Button>
+    <StyledButton>
+      <Button
+        name={name}
+        backgroundColor={backgroundColor}
+        textColor={textColor}
+        isInverted={isInverted}
+      >
+        <StyledIcon picto={icon} />
+      </Button>
+    </StyledButton>
   );
 }
 

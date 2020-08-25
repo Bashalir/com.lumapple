@@ -43,9 +43,10 @@ const StyledCategoryCard = styled.div`
   }
 
   :active {
-    img {
+    figure {
       transform: scale(0.98);
     }
+
     label {
       ::before {
         opacity: 0;

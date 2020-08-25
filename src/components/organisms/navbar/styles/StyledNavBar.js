@@ -17,7 +17,6 @@ const StyledNavBar = styled.div`
     justify-self: center;
     .logo {
       align-self: center;
-      margin: 0;
     }
   }
   .sell_now {
@@ -34,6 +33,9 @@ const StyledNavBar = styled.div`
     display: flex;
     align-content: center;
 
+    .logo {
+      margin-right: 10px;
+    }
     ${StyledMenuBurger} {
       display: none;
     }

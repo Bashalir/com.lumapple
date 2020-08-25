@@ -10,6 +10,7 @@ export const defaultTheme = {
   textSecondaryColor: neutral[400],
   backgroundDefaultColor: neutral[200],
   backgroundInvertedColor: green[200],
+  backgroundFooterColor: neutral[500],
   shadowLightPrimaryColor: neutral[100],
   shadowDarkenPrimaryColor: neutral[300],
   shadowLightInvertedColor: green[100],
@@ -18,4 +19,5 @@ export const defaultTheme = {
   primaryFont,
   secondaryFont,
   minWidth: '834px',
+  maxWidth: '1066px',
 };

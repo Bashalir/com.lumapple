@@ -6,7 +6,6 @@ const StyledLogo = styled.div`
   .logo {
     vertical-align: middle;
     height: 37px;
-    margin-right: 10px;
   }
 `;
 
