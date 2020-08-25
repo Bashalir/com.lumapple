@@ -1,5 +1,4 @@
 import styled from 'styled-components'; //css
-import {defaultTheme} from '../../../../styles';
 
 const StyledSearchInput = styled.div`
   input {

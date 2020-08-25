@@ -1,5 +1,5 @@
 import {green, neutral} from './colors';
-import {primaryFont, secondaryFont} from './typography';
+import {primaryFont, secondaryFont, typeScale} from './typography';
 
 export const defaultTheme = {
   primaryColor: green[200],
@@ -14,6 +14,7 @@ export const defaultTheme = {
   shadowDarkenPrimaryColor: neutral[300],
   shadowLightInvertedColor: green[100],
   shadowDarkenInvertedColor: green[400],
+  typeScale,
   primaryFont,
   secondaryFont,
   minWidth: '834px',

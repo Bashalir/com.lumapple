@@ -1,15 +1,24 @@
 import styled from 'styled-components';
 
 import {defaultTheme} from '../../../../styles';
+import StyledMenuBurger from '../../../molecules/MenuBurger/styles/StyledMenuBurger';
 
 const StyledNavBar = styled.div`
-  display: flex;
-  align-content: center;
-  align-items: center;
+  display: inline-grid;
+  width: 100%;
+  height: 45px;
+  grid-template-columns: 45px auto 45px;
+
+  ${StyledMenuBurger} {
+  }
 
   .logo_lumapple {
     display: flex;
-    align-self: center;
+    justify-self: center;
+    .logo {
+      align-self: center;
+      margin: 0;
+    }
   }
   .sell_now {
     display: none;
@@ -24,6 +33,10 @@ const StyledNavBar = styled.div`
   @media (min-width: ${defaultTheme.minWidth}) {
     display: flex;
     align-content: center;
+
+    ${StyledMenuBurger} {
+      display: none;
+    }
 
     .sell_now {
       display: inline-block;
