@@ -7,7 +7,7 @@ import LogoLumappleInverted from './img/logoLumapple_inverted.svg';
 
 export default function Logo({isInverted}) {
   return (
-    <StyledLogo className="logo_lumapple" isInverted={false}>
+    <StyledLogo className="logo_lumapple" isInverted={isInverted}>
       <img
         className="logo"
         src={isInverted ? LogoLumappleInverted : LogoLumapple}

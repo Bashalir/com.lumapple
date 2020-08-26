@@ -8,7 +8,7 @@ import PictoPlusGreen from './img/add_plus_green.svg';
 const LeftMenu = () => {
   return (
     <StyledLeftMenu>
-      <Logo isInverted="true" />
+      <Logo isInverted={true} />
 
       <span>
         <img src={PictoPlusGreen} /> Vendez maintenant

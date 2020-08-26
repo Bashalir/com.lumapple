@@ -21,6 +21,10 @@ body {
   font-family: ${primaryFont}
 }
 
+a:link {
+  text-decoration: none;
+}
+
 h5 {
   font-size: ${typeScale.small};
   font-weight: bold;

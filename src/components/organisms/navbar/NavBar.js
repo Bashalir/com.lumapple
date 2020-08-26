@@ -7,16 +7,21 @@ import SearchInput from '../../molecules/SearchInput/SearchInput';
 import {SellNow} from '../../molecules/IconButton/IconButton';
 import Logo from '../../atoms/logo/Logo';
 import MenuBurger from '../MenuBurger/MenuBurger';
+import {Link} from 'react-router-dom';
 
 export default function NavBar() {
   return (
     <StyledNavBar className="navbar">
       <nav>
         <MenuBurger />
-        <Logo />
+        <Link to="/">
+          <Logo />
+        </Link>
         <SellNow />
         <SearchInput />
-        <SignIn />
+        <Link to="/se-connecter">
+          <SignIn />
+        </Link>
       </nav>
     </StyledNavBar>
   );

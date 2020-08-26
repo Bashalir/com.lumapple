@@ -10,6 +10,8 @@
     ]
   },
   "scripts": {
+    "dev": "webpack --watch",
+    "dev-server": "webpack-dev-server --hot --inline",
     "build": "webpack",
     "lint": "eslint .",
     "start": "webpack-dev-server --open",
@@ -25,6 +27,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
+    "firebase": "^7.19.0",
     "polished": "^3.6.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -44,6 +48,7 @@
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "css-loader": "^4.2.1",
+    "dotenv-webpack": "^2.0.0",
     "eslint": "^7.6.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",

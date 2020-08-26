@@ -10,7 +10,7 @@ const StyledPlus = styled.div`
     position:relative;
     width:25px;
     height:25px;
-    margin-right: 5px;
+    margin-right: 10px;
     z-index:1;
 
     ::after{

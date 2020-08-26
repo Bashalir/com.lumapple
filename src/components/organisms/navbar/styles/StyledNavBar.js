@@ -16,6 +16,7 @@ const StyledNavBar = styled.div`
 
     .logo_lumapple {
       display: flex;
+      height: 45px;
       justify-self: center;
       margin: 0 10px;
       .logo {

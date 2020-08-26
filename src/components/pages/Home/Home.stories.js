@@ -6,6 +6,15 @@ export default {
   title: 'Home',
 };
 
-export const Default = () => <Home />;
+export const Default = () => (
+  <Home
+    routes=" [
+  {
+    path: '/se-connecter',
+    component: Signup,
+  },
+]"
+  />
+);
 
 Default.parameters = {backgrounds: {default: 'default'}};

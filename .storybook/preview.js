@@ -1,12 +1,16 @@
-import {defaultTheme, GlobalStyle} from '../src/themes';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter} from 'react-router-dom';
+
+import {defaultTheme, GlobalStyle} from '../src/themes';
 
 export const decorators = [
   Story => (
     <>
       <GlobalStyle />
-      <Story />
+      <BrowserRouter>
+        <Story />
+      </BrowserRouter>
     </>
   ),
 ];

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import PageTemplate from '../../templates/PageTemplate/PageTemplate';
 import NavBar from '../../organisms/navbar/NavBar';
@@ -8,10 +9,18 @@ function Main() {
   return <div>MAIN</div>;
 }
 
-function Home() {
+function Home({routes}) {
   return (
-    <PageTemplate header={<NavBar />} main={<Main />} footer={<Footer />} />
+    <PageTemplate
+      routes={routes}
+      header={<NavBar />}
+      main={<Main />}
+      footer={<Footer />}
+    />
   );
 }
 
+Home.propTypes = {
+  routes: PropTypes.array.isRequired,
+};
 export default Home;

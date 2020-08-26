@@ -14,7 +14,7 @@ export const defaultTheme = {
   shadowLightPrimaryColor: neutral[100],
   shadowDarkenPrimaryColor: neutral[300],
   shadowLightInvertedColor: green[100],
-  shadowDarkenInvertedColor: green[400],
+  shadowDarkenInvertedColor: green[300],
   typeScale,
   primaryFont,
   secondaryFont,

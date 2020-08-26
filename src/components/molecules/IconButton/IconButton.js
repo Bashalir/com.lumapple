@@ -35,7 +35,7 @@ export const SellNow = () => {
         backgroundColor={defaultTheme.backgroundInvertedColor}
         name="Vendez maintenant"
         icon={addPlus}
-        isInverted="true"
+        isInverted={true}
       />
     </div>
   );
@@ -46,6 +46,6 @@ IconButton.propTypes = {
   isInverted: PropTypes.bool,
   textColor: PropTypes.string,
   name: PropTypes.string,
-  icon: PropTypes.object.isRequired,
+  icon: PropTypes.string.isRequired,
   backgroundColor: PropTypes.string,
 };
