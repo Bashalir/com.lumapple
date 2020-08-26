@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import {defaultTheme} from '../../../../styles';
+import {defaultTheme} from '../../../../themes';
 import StyledLogo from '../../../atoms/logo/styles/StyledLogo';
 
 const StyledLeftMenu = styled.div`

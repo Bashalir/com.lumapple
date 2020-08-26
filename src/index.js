@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import {GlobalStyle} from './styles';
-import Button from './components/atoms/button/Button.js';
+import {GlobalStyle} from './themes';
+import AppRouter from './router/index';
 
 const App = () => (
-  <div>
+  <>
     <GlobalStyle />
-    <div>Hello World</div>
-    <Button />
-    <button>Bonjour</button>
-  </div>
+    <AppRouter />
+  </>
 );
 
 ReactDOM.render(<App />, document.getElementById('app'));

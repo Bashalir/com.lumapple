@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {defaultTheme} from '../../../styles';
+import {defaultTheme} from '../../../themes';
 import StyledInput from './styles/StyledInput';
 
 export default function Input({

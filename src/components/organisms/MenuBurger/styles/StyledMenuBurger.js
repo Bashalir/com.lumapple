@@ -1,8 +1,12 @@
 import styled, {css} from 'styled-components';
 
-import StyledLeftMenu from '../../LeftMenu/styles/StyledLeftMenu';
+import StyledLeftMenu from '../../../molecules/LeftMenu/styles/StyledLeftMenu';
+import StyledBurger from '../../../atoms/Burger/styles/StyledBurger';
 
 const StyledMenuBurger = styled.div`
+  ${StyledBurger} {
+    display: flex;
+  }
   ${({open}) => (open ? menuOpen : menuClose)};
 `;
 

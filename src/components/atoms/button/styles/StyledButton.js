@@ -4,7 +4,7 @@ import {
   resetPositionMixin,
   shadowMixin,
   shadowInMixin,
-} from '../../../../styles';
+} from '../../../../themes';
 
 const StyledButton = styled.button`
   display: flex;

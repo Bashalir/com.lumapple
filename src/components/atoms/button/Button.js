@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import StyledButton from './styles/StyledButton';
 import StyledLabel from './styles/StyledLabel';
-import {defaultTheme} from '../../../styles';
+import {defaultTheme} from '../../../themes';
 
 export default function Button({
   name,

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import Burger from '../../atoms/Burger/Burger';
 import StyledMenuBurger from './styles/StyledMenuBurger';
-import LeftMenu from '../LeftMenu/LeftMenu';
+import LeftMenu from '../../molecules/LeftMenu/LeftMenu';
 import PictoClose from './img/close.svg';
 
 const MenuBurger = () => {

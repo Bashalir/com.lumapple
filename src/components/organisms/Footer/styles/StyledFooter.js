@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import {defaultTheme} from '../../../../styles';
+import {defaultTheme} from '../../../../themes';
 
 const StyledFooter = styled.div`
   width: 100%;

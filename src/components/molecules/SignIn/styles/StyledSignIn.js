@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import {defaultTheme} from '../../../../styles';
+import {defaultTheme} from '../../../../themes';
 
 const StyledSignIn = styled.div`
   display: flex;

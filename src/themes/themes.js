@@ -18,6 +18,6 @@ export const defaultTheme = {
   typeScale,
   primaryFont,
   secondaryFont,
-  minWidth: '834px',
+  breakpoint: '834px',
   maxWidth: '1066px',
 };

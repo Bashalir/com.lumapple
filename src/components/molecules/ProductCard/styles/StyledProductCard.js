@@ -1,5 +1,5 @@
 import styled from 'styled-components'; //css
-import {defaultTheme} from '../../../../styles';
+import {defaultTheme} from '../../../../themes';
 import StyledCard from '../../../atoms/card/styles/StyledCard';
 import StyledProductPhoto from './StyledProductPhoto';
 import StyledProductInfos from './StyledProductInfos';

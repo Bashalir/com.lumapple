@@ -1,5 +1,5 @@
 import styled from 'styled-components'; //css
-import {defaultTheme, typeScale} from '../../../../styles';
+import {defaultTheme, typeScale} from '../../../../themes';
 
 const StyledProductInfos = styled.div`
   z-index: 3;
@@ -11,7 +11,7 @@ const StyledProductInfos = styled.div`
 
   .product_description {
     display: flex;
-    margin: 15px;
+    margin: 15px 0 0 15px;
     flex-direction: column;
     text-align: left;
   }
@@ -19,7 +19,7 @@ const StyledProductInfos = styled.div`
     white-space: pre-wrap;
   }
   .product_price {
-    padding: 15px;
+    padding: 0 15px 15px 0;
     font-family: ${defaultTheme.secondaryFont};
     font-size: ${typeScale.header3};
     font-weight: bold;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {defaultTheme} from '../../../../styles';
+import {defaultTheme} from '../../../../themes';
 
 const StyledHeader = styled.header`
   display: grid;
@@ -7,8 +7,14 @@ const StyledHeader = styled.header`
   background-color: ${defaultTheme.backgroundInvertedColor};
   justify-items: center;
   align-items: center;
-  div:nth-child(1) {
-    max-width: ${defaultTheme.maxWidth};
+  .navbar {
+    width: 100%;
+  }
+
+  @media (min-width: ${defaultTheme.breakpoint}) {
+    .navbar {
+      max-width: ${defaultTheme.maxWidth};
+    }
   }
 `;
 

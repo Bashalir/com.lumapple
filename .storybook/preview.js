@@ -1,4 +1,4 @@
-import {defaultTheme, GlobalStyle} from '../src/styles';
+import {defaultTheme, GlobalStyle} from '../src/themes';
 import React from 'react';
 import ReactDOM from 'react-dom';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import StyledCard from './styles/StyledCard';
-import {defaultTheme} from '../../../styles';
+import {defaultTheme} from '../../../themes';
 
 export default function Card({textColor, backgroundColor, children}) {
   return (

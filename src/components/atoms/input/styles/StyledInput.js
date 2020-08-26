@@ -1,5 +1,5 @@
 import styled from 'styled-components'; //css
-import {defaultTheme, shadowInMixin} from '../../../../styles';
+import {defaultTheme, shadowInMixin} from '../../../../themes';
 
 const StyledInput = styled.div`
   background-color: ${defaultTheme.backgroundDefaultColor};

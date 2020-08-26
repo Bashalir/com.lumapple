@@ -4,7 +4,7 @@ import {
   resetPositionMixin,
   shadowMixin,
   shadowInMixin,
-} from '../../../../styles';
+} from '../../../../themes';
 
 const StyledCard = styled.div`
   text-align: center;

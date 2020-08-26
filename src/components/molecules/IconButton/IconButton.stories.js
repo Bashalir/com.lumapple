@@ -1,7 +1,7 @@
 import React from 'react';
 
 import addPlus from '../../../assets/img/add_plus.svg';
-import {defaultTheme} from '../../../styles';
+import {defaultTheme} from '../../../themes';
 import IconButton, {SellNow} from './IconButton';
 
 export default {

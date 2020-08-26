@@ -1,5 +1,5 @@
 import styled from 'styled-components'; //css
-import {defaultTheme} from '../../../../styles';
+import {defaultTheme} from '../../../../themes';
 
 const StyledLabel = styled.span`
   font-size: 1rem;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {defaultTheme} from '../../../../styles';
+import {defaultTheme} from '../../../../themes';
 
 export const SearchIcon = () => {
   return (
