@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Switch} from 'react-router-dom'; // Link
 import AuthProvider from '../providers/AuthProvider';
 import RouteWithSubRoutes from './RouteWithSubRoutes';
 import Home from '../components/pages/Home/Home';
-import Signup from '../components/molecules/Signup/Signup';
+import SignUp from '../components/organisms/SignUp/SignUp';
 
 const routes = [
   {
@@ -13,7 +13,7 @@ const routes = [
     routes: [
       {
         path: '/se-connecter',
-        component: Signup,
+        component: SignUp,
       },
     ],
   },

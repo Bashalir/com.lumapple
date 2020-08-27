@@ -25,6 +25,11 @@ a:link {
   text-decoration: none;
 }
 
+h3 {
+  font-size: ${typeScale.header3};
+
+}
+
 h5 {
   font-size: ${typeScale.small};
   font-weight: bold;

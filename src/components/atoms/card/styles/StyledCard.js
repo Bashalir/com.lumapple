@@ -1,4 +1,4 @@
-import styled from 'styled-components'; //css
+import styled, {css} from 'styled-components'; //css
 import {
   defaultTheme,
   resetPositionMixin,
@@ -21,7 +21,11 @@ const StyledCard = styled.div`
   position: relative;
   outline: 0;
 
-  ::before {
+  ${({isHover}) => (isHover ? withHover : withoutHover)}
+`;
+
+const withHover = css`
+ ::before {
     ${resetPositionMixin}
     background-color: ${defaultTheme.backgroundDefaultColor};
     z-index: 1;
@@ -49,6 +53,15 @@ const StyledCard = styled.div`
       opacity: 1;
     }
   }
+`;
+
+const withoutHover = css`
+  background-color: ${defaultTheme.backgroundDefaultColor};
+  z-index: 1;
+  opacity: 1;
+  content: '';
+  border-radius: 1em;
+  ${shadowMixin}
 `;
 
 export default StyledCard;
