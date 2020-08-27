@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AuthProvider from './providers/AuthProvider';
-import {BrowserRouter} from 'react-router-dom';
 
 import './index.css';
 import {GlobalStyle} from './themes';
@@ -11,11 +9,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <BrowserRouter>
-        <AuthProvider>
-          <AppRouter />
-        </AuthProvider>
-      </BrowserRouter>
+      <AppRouter />
     </>
   );
 }
