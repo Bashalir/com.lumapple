@@ -10,8 +10,8 @@ const AuthProvider = props => {
 
   const handleSignup = () => {
     console.log('handleSignup');
-    authMethods.signup(inputs.email, inputs.password, setErrors);
-    console.log(errors);
+    authMethods.signup(inputs.email, inputs.password, setErrors, setToken);
+    console.log(errors, token);
   };
 
   return (
