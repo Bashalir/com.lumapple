@@ -13,3 +13,11 @@ export const neutral = {
   500: '#717172',
   600: '#000000',
 };
+
+export const status = {
+  focus: '#20a4f3',
+  success: '#529E66',
+  error: '#ed6a5a',
+  warning: '#F5BC36',
+  valid: '#00c853',
+};

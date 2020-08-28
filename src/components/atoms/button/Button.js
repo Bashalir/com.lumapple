@@ -10,10 +10,21 @@ export default function Button({
   backgroundColor,
   isInverted,
   textColor,
+  borderColor,
+  error,
   children,
+  disabled,
+  ...props
 }) {
   return (
-    <StyledButton backgroundColor={backgroundColor} isInverted={isInverted}>
+    <StyledButton
+      backgroundColor={backgroundColor}
+      borderColor={borderColor}
+      isInverted={isInverted}
+      error={error}
+      disabled={disabled}
+      {...props}
+    >
       {children}
       <StyledLabel name={name} textColor={textColor}>
         {name}
@@ -26,13 +37,19 @@ Button.defaultProps = {
   backgroundColor: defaultTheme.backgroundDefaultColor,
   textColor: defaultTheme.textColor,
   isInverted: false,
+  error: false,
+  disabled: false,
 };
 
 Button.displayName = 'Button';
 Button.propTypes = {
   isInverted: PropTypes.bool,
+  error: PropTypes.bool,
+  disabled: PropTypes.bool,
   textColor: PropTypes.string,
   backgroundColor: PropTypes.string,
   name: PropTypes.string,
+  borderColor: PropTypes.string,
   children: PropTypes.node,
+  props: PropTypes.any,
 };

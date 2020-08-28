@@ -1,4 +1,4 @@
-import {green, neutral} from './colors';
+import {green, neutral, status} from './colors';
 import {primaryFont, secondaryFont, typeScale} from './typography';
 
 export const defaultTheme = {
@@ -15,6 +15,11 @@ export const defaultTheme = {
   shadowDarkenPrimaryColor: neutral[300],
   shadowLightInvertedColor: green[100],
   shadowDarkenInvertedColor: green[300],
+  statusSuccessColor: status['success'],
+  statusErrorColor: status['error'],
+  statusWarningColor: status['warning'],
+  statusFocusColor: status['focus'],
+  statusValidColor: status['valid'],
   typeScale,
   primaryFont,
   secondaryFont,

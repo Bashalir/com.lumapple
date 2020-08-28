@@ -18,6 +18,20 @@ const StyledSignUp = styled.div`
 
     form {
       margin: 20px;
+      padding: 20px;
+      width: 100%;
+
+      p {
+        font-size: ${defaultTheme.typeScale.helper};
+        margin: 20px;
+        color: ${defaultTheme.statusErrorColor};
+      }
+
+      button {
+        margin: 0 auto;
+        height: 45px;
+        width: calc(100% - 15px);
+      }
     }
     h3 {
       margin: 35px 0 20px 0;

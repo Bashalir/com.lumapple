@@ -11,7 +11,9 @@ export default function Input({
   width,
   textColor,
   backgroundColor,
+  error,
   children,
+  inputRef,
   ...props
 }) {
   return (
@@ -20,8 +22,14 @@ export default function Input({
       width={width}
       textColor={textColor}
       backgroundColor={backgroundColor}
+      error={error}
     >
-      <input placeholder={placeholder} type={type} {...props}></input>
+      <input
+        placeholder={placeholder}
+        ref={inputRef}
+        type={type}
+        {...props}
+      ></input>
       {children}
     </StyledInput>
   );
@@ -33,6 +41,7 @@ Input.defaultProps = {
   textColor: defaultTheme.textColor,
   width: '100%',
   height: '45px',
+  error: false,
 };
 
 Input.propTypes = {
@@ -43,5 +52,7 @@ Input.propTypes = {
   textColor: PropTypes.string,
   backgroundColor: PropTypes.string,
   children: PropTypes.node,
+  error: PropTypes.bool,
   props: PropTypes.any,
+  inputRef: PropTypes.any,
 };

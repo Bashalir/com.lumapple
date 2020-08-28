@@ -18,15 +18,25 @@ const AuthProvider = props => {
     authMethods.currentUser(setUser);
   };
 
-  const handleSignup = () => {
+  const handleSignup = async () => {
     console.log('handleSignup');
-    authMethods.signup(inputs.email, inputs.password, setErrors, setToken);
+    await authMethods.signup(
+      inputs.email,
+      inputs.password,
+      setErrors,
+      setToken,
+    );
     console.log(errors, token);
   };
 
-  const handleSignin = () => {
+  const handleSignin = async () => {
     console.log('handleSignin!!!!');
-    authMethods.signin(inputs.email, inputs.password, setErrors, setToken);
+    await authMethods.signin(
+      inputs.email,
+      inputs.password,
+      setErrors,
+      setToken,
+    );
     console.log(errors, token);
   };
 

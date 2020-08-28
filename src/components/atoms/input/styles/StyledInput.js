@@ -1,4 +1,4 @@
-import styled from 'styled-components'; //css
+import styled, {css} from 'styled-components'; //css
 import {defaultTheme, shadowInMixin} from '../../../../themes';
 
 const StyledInput = styled.div`
@@ -10,12 +10,15 @@ const StyledInput = styled.div`
   border-radius: 2em;
   padding-inline-end: 15px;
   padding-inline-start: 15px;
-  :focus {
-    outline: 10px;
-  }
 
   height: ${({height}) => height};
 
+  border: none;
+
+  :focus-within {
+    border: 1px solid;
+    border-color: ${defaultTheme.statusFocusColor};
+  }
   ${shadowInMixin}
 
   input {
@@ -24,6 +27,21 @@ const StyledInput = styled.div`
     color: ${({textColor}) => textColor};
     border: none;
     background: none;
+  }
+
+  ${({error}) =>
+    error
+      ? statusError
+      : css`
+          border: none;
+        `}
+`;
+
+const statusError = css`
+  border: 1px solid;
+  border-color: ${defaultTheme.statusErrorColor};
+  :focus-within {
+    border-color: ${defaultTheme.statusErrorColor};
   }
 `;
 

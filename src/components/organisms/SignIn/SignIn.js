@@ -1,39 +1,44 @@
-import React, {useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import {firebaseAuth} from '../../../providers/AuthProvider';
 import {useForm, Controller} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers';
 import * as yup from 'yup';
+import isEmpty from 'lodash.isempty';
 
 import Card from '../../atoms/card/Card';
 import StyledSignIn from './styles/StyledSignIn';
 import Input from '../../atoms/input/Input';
+import Button from '../../atoms/button/Button';
+import {defaultTheme} from '../../../themes/';
 
 const schema = yup.object().shape({
-  email: yup.string().min(8, 'Pas assez long').required(),
-  password: yup.string().min(8, 'Pas assez long').required(),
+  email: yup
+    .string()
+    .email('Veuillez saisir une adresse email.')
+    .required('Veuillez saisir une adresse email.'),
+  password: yup
+    .string()
+    .min(6, 'Votre mot de passe contient 8 charactères minimum')
+    .required(),
 });
 
 const SignIn = () => {
   const {handleSignin, inputs, setInputs} = useContext(firebaseAuth);
-  const {control, handleSubmit, errors} = useForm({
+  const {handleSubmit, register, errors} = useForm({
+    mode: 'onChange',
+    reValidateMode: 'onChange',
     resolver: yupResolver(schema),
   });
 
   const onSubmit = () => {
-    console.log('handleSubmit');
-    handleSignin();
+    // handleSignin();
+    // console.log(inputs.email, inputs.password);
   };
 
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   console.log('handleSubmit');
-  //   handleSignin();
-  // };
-  // const handleChange = e => {
-  //   const {name, value} = e.target;
-  //   console.log(inputs);
-  //   setInputs(prev => ({...prev, [name]: value}));
-  // };
+  const handleChange = e => {
+    const {name, value} = e.target;
+    setInputs(prev => ({...prev, [name]: value}));
+  };
 
   return (
     <StyledSignIn>
@@ -41,50 +46,35 @@ const SignIn = () => {
         <h3>Bonjour !</h3>
         <span>Connectez-vous pour découvrir toutes nos fonctionnalités</span>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Controller
-            as={Input}
-            name="email"
-            control={control}
-            defaultValue=""
+          <Input
             type="text"
+            name="email"
+            onChange={handleChange}
             placeholder="E-mail"
+            inputRef={register}
+            error={errors.email ? true : false}
           />
           <p>{errors.email?.message}</p>
-          <Controller
-            as={Input}
-            name="password"
-            control={control}
-            defaultValue=""
+
+          <Input
             type="password"
+            name="password"
+            onChange={handleChange}
             placeholder="Mot de Passe"
+            inputRef={register}
+            error={errors.password ? true : false}
           />
+
           <p>{errors.password?.message}</p>
 
-          <input type="submit" />
+          <Button
+            type="submit"
+            name="Se connecter"
+            textColor={defaultTheme.statusValidColor}
+            borderColor={defaultTheme.statusValidColor}
+            disabled={isEmpty(errors) ? false : true}
+          />
         </form>
-
-        {/* <form onSubmit={handleSubmit}>
-          <Input
-            onChange={handleChange}
-            name="email"
-            placeholder="E-mail"
-            value={inputs.email}
-          />
-          <Input
-            type="password"
-            onChange={handleChange}
-            name="password"
-            placeholder="Mot de Passe"
-          />
-          <button>signin</button>
-          {errors.length > 0
-            ? errors.map((error, i) => (
-                <p key={i} style={{color: 'red'}}>
-                  {error}
-                </p>
-              ))
-            : null}
-        </form> */}
       </Card>
     </StyledSignIn>
   );

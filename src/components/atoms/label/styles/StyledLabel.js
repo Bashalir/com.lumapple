@@ -7,7 +7,7 @@ const StyledLabel = styled.span`
   z-index: 1;
   position: relative;
   content: ${props => props.name};
-  color: ${props => props.textColor};
+  color: ${({textColor}) => textColor};
   font-family: ${defaultTheme.primaryFont};
 `;
 
