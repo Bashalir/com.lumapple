@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import {defaultTheme} from '../../../../themes';
 
-const StyledSignIn = styled.div`
+const StyledSignInButton = styled.div`
   display: flex;
   flex-flow: column;
   align-content: center;
@@ -20,4 +20,4 @@ const StyledSignIn = styled.div`
   }
 `;
 
-export default StyledSignIn;
+export default StyledSignInButton;

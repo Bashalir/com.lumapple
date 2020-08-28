@@ -5,39 +5,32 @@ import {yupResolver} from '@hookform/resolvers';
 import * as yup from 'yup';
 
 import Card from '../../atoms/card/Card';
-import StyledSignUp from './styles/StyledSignUp';
+import StyledSignIn from './styles/StyledSignIn';
 
 const schema = yup.object().shape({
   email: yup.string().required(),
   password: yup.string().required(),
 });
 
-const SignUp = () => {
-  const {handleSignup, inputs, setInputs, errors, setToken} = useContext(
-    firebaseAuth,
-  );
+const SignIn = () => {
+  const {handleSignin, inputs, setInputs, errors} = useContext(firebaseAuth);
 
   const handleSubmit = e => {
     e.preventDefault();
     console.log('handleSubmit');
-    handleSignup();
-    // const errorsUnique = new Set(errors);
+    handleSignin();
   };
   const handleChange = e => {
     const {name, value} = e.target;
     console.log(inputs);
     setInputs(prev => ({...prev, [name]: value}));
   };
-
   return (
-    <StyledSignUp>
+    <StyledSignIn>
       <Card isHover={false}>
         <h3>Bonjour !</h3>
         <span>Connectez-vous pour découvrir toutes nos fonctionnalités</span>
         <form onSubmit={handleSubmit}>
-          {/* replace the div tags with a form tag */}
-          Signup
-          {/* make inputs  */}
           <input
             onChange={handleChange}
             name="email"
@@ -48,10 +41,9 @@ const SignUp = () => {
             type="password"
             onChange={handleChange}
             name="password"
-            placeholder="password"
-            value={inputs.password}
+            placeholder="mot de passe"
           />
-          <button>signup</button>
+          <button>signin</button>
           {errors.length > 0
             ? errors.map((error, i) => (
                 <p key={i} style={{color: 'red'}}>
@@ -61,8 +53,8 @@ const SignUp = () => {
             : null}
         </form>
       </Card>
-    </StyledSignUp>
+    </StyledSignIn>
   );
 };
 
-export default SignUp;
+export default SignIn;

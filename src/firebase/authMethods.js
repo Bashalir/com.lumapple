@@ -1,18 +1,25 @@
 import firebaseconfig from './firebaseIndex';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 export const authMethods = {
-  // firebase helper methods go here...
+  currentUser: callback => {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        callback({loggedIn: true, email: user.email});
+      } else {
+        callback({loggedIn: false});
+      }
+    });
+  },
+
   signup: (email, password, setErrors, setToken) => {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      //make res asynchronous so that we can make grab the token before saving it.
       .then(async res => {
         const token = await Object.entries(res.user)[5][1].b;
-        //set token to localStorage
         await localStorage.setItem('token', token);
-        //grab token from local storage and set to state.
         setToken(window.localStorage.token);
         console.log(res);
       })
@@ -21,6 +28,33 @@ export const authMethods = {
       });
   },
 
-  signin: (email, password) => {},
-  signout: (email, password) => {},
+  signin: (email, password, setErrors, setToken) => {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(async res => {
+        const token = await Object.entries(res.user)[5][1].b;
+        await localStorage.setItem('token', token);
+        setToken(window.localStorage.token);
+      })
+      .catch(err => {
+        setErrors(prev => [...prev, err.message]);
+      });
+  },
+
+  signout: (setErrors, setToken) => {
+    firebase
+      .auth()
+      .signOut()
+      .then(res => {
+        localStorage.removeItem('token');
+        setToken(null);
+      })
+      .catch(err => {
+        setErrors(prev => [...prev, err.message]);
+        localStorage.removeItem('token');
+        setToken(null);
+        console.error(err.message);
+      });
+  },
 };
