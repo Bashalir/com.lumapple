@@ -12,6 +12,7 @@ export default function Input({
   textColor,
   backgroundColor,
   children,
+  ...props
 }) {
   return (
     <StyledInput
@@ -19,9 +20,8 @@ export default function Input({
       width={width}
       textColor={textColor}
       backgroundColor={backgroundColor}
-      type={type}
     >
-      <input placeholder={placeholder}></input>
+      <input placeholder={placeholder} type={type} {...props}></input>
       {children}
     </StyledInput>
   );
@@ -43,4 +43,5 @@ Input.propTypes = {
   textColor: PropTypes.string,
   backgroundColor: PropTypes.string,
   children: PropTypes.node,
+  props: PropTypes.any,
 };
