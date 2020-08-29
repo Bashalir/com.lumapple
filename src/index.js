@@ -9,6 +9,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
+
       <AppRouter />
     </>
   );

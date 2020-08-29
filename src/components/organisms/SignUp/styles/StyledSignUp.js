@@ -4,10 +4,13 @@ import {defaultTheme, typeScale} from '../../../../themes';
 import StyledInput from '../../../atoms/input/styles/StyledInput';
 
 const StyledSignUp = styled.div`
+  display: grid;
+  align-content: center;
+  height: 100%;
+
   ${StyledCard} {
     display: flex;
     flex-flow: row wrap;
-    align-content: flex-start;
     width: 100%;
     height: 100%;
     padding: 10px;
@@ -17,6 +20,9 @@ const StyledSignUp = styled.div`
     }
 
     form {
+      span {
+        font-size: ${typeScale.helper};
+      }
       margin: 20px;
       padding: 20px;
       width: 100%;
@@ -33,24 +39,24 @@ const StyledSignUp = styled.div`
         width: calc(100% - 15px);
       }
     }
+
     h3 {
       margin: 35px 0 20px 0;
     }
 
     p {
+      margin-bottom: 20px;
       a {
         color: ${defaultTheme.textPrimaryColor};
       }
-    }
-    span {
-      font-size: ${typeScale.helper};
     }
   }
 
   @media (min-width: ${defaultTheme.breakpoint}) {
     ${StyledCard} {
       width: 456px;
-      height: 476px;
+      min-height: 656px;
+      max-height: 830px;
     }
   }
 `;

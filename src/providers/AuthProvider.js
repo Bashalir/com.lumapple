@@ -2,9 +2,10 @@ import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 
 import {authMethods} from '../firebase/authMethods';
+import {useToasts} from 'react-toast-notifications';
 
 const AuthProvider = props => {
-  const [inputs, setInputs] = useState({email: '', password: ''});
+  const [inputs, setInputs] = useState({});
   const [errors, setErrors] = useState([]);
   const [token, setToken] = useState(null);
   const [user, setUser] = useState({loggedIn: false});
@@ -26,6 +27,7 @@ const AuthProvider = props => {
       setErrors,
       setToken,
     );
+
     console.log(errors, token);
   };
 

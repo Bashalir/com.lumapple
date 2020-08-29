@@ -23,7 +23,7 @@ export default function NavBar() {
         </Link>
         <SellNow />
         <SearchInput />
-        <Link to="/se-connecter">
+        <Link to={user.loggedIn ? '/mon-compte' : '/se-connecter'}>
           <SignInButton text={user.loggedIn ? user.email : 'Se connecter'} />
         </Link>
       </nav>

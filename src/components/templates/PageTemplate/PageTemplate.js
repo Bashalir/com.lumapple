@@ -12,14 +12,17 @@ function PageTemplate({header, main, footer, routes}) {
   return (
     <StyledPageTemplate>
       <StyledHeader>{header}</StyledHeader>
-      <Switch>
-        <Route exact path="/">
-          <StyledMain>{main}</StyledMain>
-        </Route>
-        {routes.map((route, i) => (
-          <RouteWithSubRoutes key={i} {...route} />
-        ))}
-      </Switch>
+      <StyledMain>
+        <Switch>
+          <Route exact path="/">
+            {main}
+          </Route>
+
+          {routes.map((route, i) => (
+            <RouteWithSubRoutes key={i} {...route} />
+          ))}
+        </Switch>
+      </StyledMain>
 
       <StyledFooter>{footer}</StyledFooter>
     </StyledPageTemplate>

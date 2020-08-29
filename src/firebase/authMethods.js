@@ -21,6 +21,7 @@ export const authMethods = {
         const token = await Object.entries(res.user)[5][1].b;
         await localStorage.setItem('token', token);
         setToken(window.localStorage.token);
+
         console.log(res);
       })
       .catch(err => {
@@ -35,7 +36,7 @@ export const authMethods = {
       .then(async res => {
         const token = await Object.entries(res.user)[5][1].b;
         await localStorage.setItem('token', token);
-        setToken(window.localStorage.token);
+        await setToken(window.localStorage.token);
       })
       .catch(err => {
         setErrors(prev => [...prev, err.message]);

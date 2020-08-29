@@ -4,7 +4,8 @@ import {BrowserRouter as Router, Switch} from 'react-router-dom'; // Link
 import AuthProvider from '../providers/AuthProvider';
 import RouteWithSubRoutes from './RouteWithSubRoutes';
 import Home from '../components/pages/Home/Home';
-import SignUp from '../components/organisms/SignIn/SignIn';
+import Connection from '../components/pages/Connection/Connection';
+import SignUp from '../components/organisms/SignUp/SignUp';
 
 const routes = [
   {
@@ -13,8 +14,17 @@ const routes = [
     routes: [
       {
         path: '/se-connecter',
+        component: Connection,
+      },
+      {
+        path: '/s-enregistrer',
         component: SignUp,
       },
+
+      // {
+      //   path: '/mon_compte',
+      //   component: Account,
+      // },
     ],
   },
 ];

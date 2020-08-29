@@ -9,7 +9,9 @@ import Card from '../../atoms/card/Card';
 import StyledSignIn from './styles/StyledSignIn';
 import Input from '../../atoms/input/Input';
 import Button from '../../atoms/button/Button';
-import {defaultTheme} from '../../../themes/';
+import {defaultTheme} from '../../../themes';
+import {useToasts} from 'react-toast-notifications';
+import {Link} from 'react-router-dom';
 
 const schema = yup.object().shape({
   email: yup
@@ -31,8 +33,8 @@ const SignIn = () => {
   });
 
   const onSubmit = () => {
-    // handleSignin();
-    // console.log(inputs.email, inputs.password);
+    handleSignin();
+    console.log(inputs.email, inputs.password);
   };
 
   const handleChange = e => {
@@ -75,6 +77,10 @@ const SignIn = () => {
             disabled={isEmpty(errors) ? false : true}
           />
         </form>
+        <p>
+          <b>Envie de nous rejoindre ?</b>{' '}
+          <Link to="/s-enregistrer">Créer un compte</Link>
+        </p>
       </Card>
     </StyledSignIn>
   );
