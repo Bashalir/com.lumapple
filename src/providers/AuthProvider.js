@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 
 import {authMethods} from '../firebase/authMethods';
 import {useToasts} from 'react-toast-notifications';
+import axios from 'axios';
 
 const AuthProvider = props => {
   const [inputs, setInputs] = useState({});
   const [errors, setErrors] = useState([]);
   const [token, setToken] = useState(null);
-  const [user, setUser] = useState({loggedIn: false});
+  const [user, setUser] = useState({loggedIn: false, uid: ''});
 
   useEffect(() => {
     handleCurrentUser();
@@ -19,26 +20,16 @@ const AuthProvider = props => {
     authMethods.currentUser(setUser);
   };
 
-  const handleSignup = async () => {
+  const handleSignup = data => {
     console.log('handleSignup');
-    await authMethods.signup(
-      inputs.email,
-      inputs.password,
-      setErrors,
-      setToken,
-    );
+    authMethods.signup(inputs, setErrors, setToken, setUser);
 
     console.log(errors, token);
   };
 
   const handleSignin = async () => {
     console.log('handleSignin!!!!');
-    await authMethods.signin(
-      inputs.email,
-      inputs.password,
-      setErrors,
-      setToken,
-    );
+    authMethods.signin(inputs.email, inputs.password, setErrors, setToken);
     console.log(errors, token);
   };
 
@@ -58,6 +49,7 @@ const AuthProvider = props => {
         handleSignout,
         handleCurrentUser,
         user,
+        setToken,
       }}
     >
       {props.children}

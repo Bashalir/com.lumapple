@@ -13,7 +13,7 @@ import {Link} from 'react-router-dom';
 import SignUpSchema from '../../../validations/SignUpSchema';
 
 const SignUp = () => {
-  const {handleSignup, inputs, setInputs} = useContext(firebaseAuth);
+  const {handleSignup, inputs, setInputs, setToken} = useContext(firebaseAuth);
   const {handleSubmit, register, errors} = useForm({
     mode: 'onChange',
     reValidateMode: 'onChange',

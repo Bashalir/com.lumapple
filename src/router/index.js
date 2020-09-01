@@ -6,6 +6,7 @@ import RouteWithSubRoutes from './RouteWithSubRoutes';
 import Home from '../components/pages/Home/Home';
 import Connection from '../components/pages/Connection/Connection';
 import SignUp from '../components/organisms/SignUp/SignUp';
+import Account from '../components/pages/Account/Account';
 
 const routes = [
   {
@@ -21,10 +22,10 @@ const routes = [
         component: SignUp,
       },
 
-      // {
-      //   path: '/mon_compte',
-      //   component: Account,
-      // },
+      {
+        path: '/mon-compte',
+        component: Account,
+      },
     ],
   },
 ];
