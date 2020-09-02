@@ -30,6 +30,14 @@ h3 {
 
 }
 
+h4 {
+  font-size: ${typeScale.header5};
+
+  @media (min-width: ${defaultTheme.breakpoint}) {
+    font-size: ${typeScale.header4};
+  }
+
+}
 h5 {
   font-size: ${typeScale.small};
   font-weight: bold;

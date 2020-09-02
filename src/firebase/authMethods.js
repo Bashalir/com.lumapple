@@ -8,71 +8,64 @@ export const authMethods = {
   currentUser: callback => {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        callback({loggedIn: true, email: user.email});
+        callback({
+          loggedIn: true,
+          email: user.email,
+          displayName: user.displayName,
+          uid: user.uid,
+        });
       } else {
         callback({loggedIn: false});
       }
     });
   },
 
-  signup: (data, setErrors, setToken) => {
-    const token = '4efad9bb-90a4-4dfa-92e8-f5f86404e177';
+  signup: (data, setErrors, setToken, setUser, user) => {
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(data.email, data.password)
+      .then(async res => {
+        const token = await Object.entries(res.user)[5][1].b;
+        localStorage.setItem('token', token);
+        setToken(token);
 
-    const createUserAccount = async data => {
-      const res = await axios.post(
-        'http://localhost:3030/api/users',
-        {data},
-        {
-          headers: {
-            id_token: data.token,
-          },
-        },
-      );
-      return res;
-    };
-    createUserAccount({
-      providerId: 'data.email',
-      firebaseId: token,
-      displayName: data.name,
-      firstName: data.firstname,
-      lastName: data.lastname,
-      mail: data.email,
-      token,
-    });
+        const updateDisplayName = await res.user.updateProfile({
+          displayName: data.name,
+        });
 
-    // firebase
-    //   .auth()
-    //   .createUserWithEmailAndPassword(data.email, data.password)
-    //   .then(async res => {
-    //     const token = await Object.entries(res.user)[5][1].b;
-    //     localStorage.setItem('token', token);
-    //     setToken(token);
+        updateDisplayName();
 
-    //     const createUserAccount = async data => {
-    //       const res = await axios.post(
-    //         'http://localhost:3030/api/users',
-    //         {data},
-    //         {
-    //           headers: {
-    //             id_token: data.token,
-    //           },
-    //         },
-    //       );
-    //       return res;
-    //     };
-    //     await createUserAccount({
-    //       provider_id: 'data.email',
-    //       firebase_id: token.h,
-    //       display_name: data.name,
-    //       first_name: data.firstname,
-    //       last_name: data.lastname,
-    //       mail: data.email,
-    //       token,
-    //     });
-    //   })
-    //   .catch(err => {
-    //     setErrors(prev => [...prev, err.message]);
-    //   });
+        const createUserAccount = async data => {
+          const res = await axios.post(
+            'http://localhost:3030/api/users',
+            {data},
+            {
+              headers: {
+                id_token: data.token,
+              },
+            },
+          );
+          return res;
+        };
+        await createUserAccount({
+          providerId: 'data.email',
+          firebaseId: token.h,
+          displayName: data.name,
+          firstName: data.firstname,
+          lastName: data.lastname,
+          mail: data.email,
+          token,
+        });
+        await setUser({
+          ...user,
+          loggedIn: true,
+          email: data.email,
+          displayName: data.name,
+        });
+      })
+      .catch(err => {
+        setErrors(prev => [...prev, err.message]);
+      });
   },
 
   signin: (email, password, setErrors, setToken) => {

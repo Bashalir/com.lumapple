@@ -28,7 +28,7 @@ export default function IconButton({
   );
 }
 
-export const SellNow = () => {
+export const SellNowButton = () => {
   return (
     <div className="sell_now">
       <IconButton

@@ -7,6 +7,7 @@ import Home from '../components/pages/Home/Home';
 import Connection from '../components/pages/Connection/Connection';
 import SignUp from '../components/organisms/SignUp/SignUp';
 import Account from '../components/pages/Account/Account';
+import SellNow from '../components/pages/SellNow/SellNow';
 
 const routes = [
   {
@@ -25,6 +26,10 @@ const routes = [
       {
         path: '/mon-compte',
         component: Account,
+      },
+      {
+        path: '/vendez-maintenant',
+        component: SellNow,
       },
     ],
   },

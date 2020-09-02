@@ -9,7 +9,7 @@ const AuthProvider = props => {
   const [inputs, setInputs] = useState({});
   const [errors, setErrors] = useState([]);
   const [token, setToken] = useState(null);
-  const [user, setUser] = useState({loggedIn: false, uid: ''});
+  const [user, setUser] = useState({loggedIn: false});
 
   useEffect(() => {
     handleCurrentUser();
@@ -20,10 +20,9 @@ const AuthProvider = props => {
     authMethods.currentUser(setUser);
   };
 
-  const handleSignup = data => {
+  const handleSignup = () => {
     console.log('handleSignup');
-    authMethods.signup(inputs, setErrors, setToken, setUser);
-
+    authMethods.signup(inputs, setErrors, setToken, setUser, user);
     console.log(errors, token);
   };
 

@@ -5,7 +5,7 @@ import 'firebase/auth';
 import StyledNavBar from './styles/StyledNavBar';
 import SignInButton from '../../molecules/SignInButton/SignInButton';
 import SearchInput from '../../molecules/SearchInput/SearchInput';
-import {SellNow} from '../../molecules/IconButton/IconButton';
+import {SellNowButton} from '../../molecules/IconButton/IconButton';
 import Logo from '../../atoms/logo/Logo';
 import MenuBurger from '../MenuBurger/MenuBurger';
 import {Link} from 'react-router-dom';
@@ -21,10 +21,14 @@ export default function NavBar() {
         <Link to="/">
           <Logo />
         </Link>
-        <SellNow />
+        <Link to={'/vendez-maintenant'}>
+          <SellNowButton />
+        </Link>
         <SearchInput />
         <Link to={user.loggedIn ? '/mon-compte' : '/se-connecter'}>
-          <SignInButton text={user.loggedIn ? user.email : 'Se connecter'} />
+          <SignInButton
+            text={user.loggedIn ? user.displayName : 'Se connecter'}
+          />
         </Link>
       </nav>
     </StyledNavBar>

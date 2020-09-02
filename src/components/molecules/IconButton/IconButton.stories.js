@@ -2,7 +2,7 @@ import React from 'react';
 
 import addPlus from '../../../assets/img/add_plus.svg';
 import {defaultTheme} from '../../../themes';
-import IconButton, {SellNow} from './IconButton';
+import IconButton, {SellNowButton} from './IconButton';
 
 export default {
   component: IconButton,
@@ -18,7 +18,7 @@ export const Default = () => (
   />
 );
 
-export const AddButton = () => <SellNow />;
+export const AddButton = () => <SellNowButton />;
 
 Default.parameters = {backgrounds: {default: 'inverted'}};
 AddButton.parameters = {backgrounds: {default: 'inverted'}};

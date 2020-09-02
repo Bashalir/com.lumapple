@@ -1,11 +1,11 @@
 import React from 'react';
-import SignUp from './SignIN';
+import SignIn from './SignIn';
 
 export default {
-  component: SignUp,
-  title: 'SignUp',
+  component: SignIn,
+  title: 'SignIn',
 };
 
-export const Default = () => <SignUp />;
+export const Default = () => <SignIn />;
 
 Default.parameters = {backgrounds: {default: 'default'}};
