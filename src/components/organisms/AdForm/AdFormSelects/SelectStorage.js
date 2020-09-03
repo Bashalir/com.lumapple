@@ -8,7 +8,7 @@ import CategoryCard from '../../../molecules/CategoryCard/CategoryCard';
 import {firebaseAuth} from '../../../../providers/AuthProvider';
 
 const SelectStorage = ({ad, setAd}) => {
-  const {user} = useContext(firebaseAuth);
+  const {user, token} = useContext(firebaseAuth);
 
   const [storage, setStorage] = useState();
   const [storages, setStorages] = useState([]);
@@ -33,7 +33,7 @@ const SelectStorage = ({ad, setAd}) => {
         {},
         {
           headers: {
-            id_token: user.token,
+            authorization: token,
           },
         },
       )

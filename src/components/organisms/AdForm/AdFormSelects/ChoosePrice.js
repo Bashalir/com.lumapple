@@ -13,7 +13,7 @@ import {isEmpty} from 'lodash.isempty';
 import {firebaseAuth} from '../../../../providers/AuthProvider';
 
 const ChoosePrice = ({ad, setAd}) => {
-  const {user} = useContext(firebaseAuth);
+  const {user, token} = useContext(firebaseAuth);
 
   const [price, setPrice] = useState();
   const {handleSubmit, register, errors} = useForm({
@@ -30,7 +30,7 @@ const ChoosePrice = ({ad, setAd}) => {
       .post(
         `http://localhost:3030/api/ads`,
         {
-          userId: user.uid,
+          userId: user.userApiId,
           familyId: ad.family,
           screenStateId: ad.screenState,
           hullStateId: ad.hullState,
@@ -40,7 +40,7 @@ const ChoosePrice = ({ad, setAd}) => {
         },
         {
           headers: {
-            id_token: user.token,
+            authorization: token,
           },
         },
       )

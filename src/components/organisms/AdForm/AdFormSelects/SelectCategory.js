@@ -8,7 +8,7 @@ import {firebaseAuth} from '../../../../providers/AuthProvider';
 import {BrowserRouter} from 'react-router-dom';
 
 const SelectCategory = ({ad, setAd}) => {
-  const {user} = useContext(firebaseAuth);
+  const {user, token} = useContext(firebaseAuth);
 
   const [category, setCategory] = useState();
   const [categories, setCategories] = useState([]);
@@ -34,7 +34,7 @@ const SelectCategory = ({ad, setAd}) => {
         {},
         {
           headers: {
-            id_token: user.token,
+            authorization: token,
           },
         },
       )

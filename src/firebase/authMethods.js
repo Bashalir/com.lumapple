@@ -21,47 +21,71 @@ export const authMethods = {
   },
 
   signup: (data, setErrors, setToken, setUser, user) => {
+    firebase.auth().languageCode = 'fr';
+
     firebase
       .auth()
       .createUserWithEmailAndPassword(data.email, data.password)
       .then(async res => {
-        const token = await Object.entries(res.user)[5][1].b;
-        localStorage.setItem('token', token);
-        setToken(token);
+        let token = '';
+        const currentUserFB = firebase.auth().currentUser;
+        currentUserFB
+          .getIdToken(/* forceRefresh */ true)
+          .then(function (idToken) {
+            token = idToken;
+            localStorage.setItem('token', token);
+            setToken(token);
+          })
+          .catch(function (error) {
+            console.log('Erreur : ', error);
+          });
 
-        const updateDisplayName = await res.user.updateProfile({
+        await currentUserFB
+          .sendEmailVerification()
+          .then(function () {})
+          .catch(function (error) {
+            console.log(error);
+          });
+
+        await currentUserFB.updateProfile({
           displayName: data.name,
         });
 
-        updateDisplayName();
-
-        const createUserAccount = async data => {
-          const res = await axios.post(
-            'http://localhost:3030/api/users',
-            {data},
-            {
-              headers: {
-                id_token: data.token,
-              },
-            },
-          );
-          return res;
-        };
-        await createUserAccount({
+        return token;
+      })
+      .then(async token => {
+        data = {
           providerId: 'data.email',
-          firebaseId: token.h,
+          firebaseId: token,
           displayName: data.name,
           firstName: data.firstname,
           lastName: data.lastname,
           mail: data.email,
-          token,
-        });
-        await setUser({
-          ...user,
-          loggedIn: true,
-          email: data.email,
-          displayName: data.name,
-        });
+        };
+        axios
+          .post(
+            'http://localhost:3030/api/users',
+            {data},
+            {
+              headers: {
+                authorization: data.token,
+              },
+            },
+          )
+          .then(response => {
+            const email = response.data.userToAdd.mail;
+            const displayName = response.data.userToAdd.displayName;
+
+            setUser({
+              ...user,
+              loggedIn: true,
+              email,
+              displayName,
+            });
+          })
+          .catch(error => {
+            console.log('Erreur : ', error);
+          });
       })
       .catch(err => {
         setErrors(prev => [...prev, err.message]);

@@ -8,7 +8,7 @@ import CategoryCard from '../../../molecules/CategoryCard/CategoryCard';
 import {firebaseAuth} from '../../../../providers/AuthProvider';
 
 const SelectFamily = ({ad, setAd}) => {
-  const {user} = useContext(firebaseAuth);
+  const {user, token} = useContext(firebaseAuth);
 
   const [family, setFamily] = useState();
   const [families, setFamilies] = useState([]);
@@ -34,7 +34,7 @@ const SelectFamily = ({ad, setAd}) => {
         {},
         {
           headers: {
-            id_token: user.token,
+            authorization: token,
           },
         },
       )

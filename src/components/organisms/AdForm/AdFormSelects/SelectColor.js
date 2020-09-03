@@ -8,7 +8,7 @@ import CategoryCard from '../../../molecules/CategoryCard/CategoryCard';
 import {firebaseAuth} from '../../../../providers/AuthProvider';
 
 const SelectColor = ({ad, setAd}) => {
-  const {user} = useContext(firebaseAuth);
+  const {user, token} = useContext(firebaseAuth);
 
   const [color, setColor] = useState();
   const [colors, setColors] = useState([]);
@@ -33,7 +33,7 @@ const SelectColor = ({ad, setAd}) => {
         {},
         {
           headers: {
-            id_token: user.token,
+            authorization: token,
           },
         },
       )
