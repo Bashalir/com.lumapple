@@ -6,6 +6,7 @@ import Card from '../../../atoms/card/Card';
 import CategoryCard from '../../../molecules/CategoryCard/CategoryCard';
 
 import {firebaseAuth} from '../../../../providers/AuthProvider';
+import ModelCard from '../../../molecules/ModelCard/ModelCard';
 
 const SelectFamily = ({ad, setAd}) => {
   const {user, token} = useContext(firebaseAuth);
@@ -58,16 +59,18 @@ const SelectFamily = ({ad, setAd}) => {
         onChange={handleChange}
       />
       <label htmlFor={family.ref}>
-        <CategoryCard name={family.type} />
+        <ModelCard name={family.type} imgRef={family.ref} />
       </label>
     </div>
   ));
 
   return (
     <div>
-      <Card isHover={false}>
+      <Card isHover={false} className="container-card">
         <h4>Quel est le modèle de votre {ad.type} ?</h4>
-        {families[1] ? listFamilies : <div>loading</div>}
+        <div className="ad-list family-list">
+          {families[1] ? listFamilies : <div>loading</div>}
+        </div>
       </Card>
     </div>
   );

@@ -5,12 +5,15 @@ import Card from '../../atoms/card/Card';
 import StyledCategoryCard from './styles/StyledCategoryCard';
 import Label from '../../atoms/label/Label';
 
-export default function CategoryCard({image, name}) {
+import MacBook from './img/macbook.svg';
+
+export default function CategoryCard({name, imgRef}) {
+  const urlImage = `https://res.cloudinary.com/lumapple/image/upload/v1599244923/svg/${imgRef}.svg`;
   return (
     <StyledCategoryCard>
       <figure>
         <Card name={name}>
-          <img src={image} alt={name} />
+          <img src={urlImage} alt={name} />
         </Card>
       </figure>
       <Label title={name} />
@@ -19,6 +22,6 @@ export default function CategoryCard({image, name}) {
 }
 
 CategoryCard.propTypes = {
-  image: PropTypes.object.isRequired,
+  imgRef: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
 };

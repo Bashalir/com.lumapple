@@ -25,7 +25,7 @@ const SelectScreenStates = ({ad, setAd}) => {
   ];
 
   const listScreenStates = screenStates.map(screenState => (
-    <div key={screenState.id}>
+    <div className="card-button" key={screenState.id}>
       <input
         type="radio"
         id={`screenState_${screenState.ref}`}
@@ -35,16 +35,18 @@ const SelectScreenStates = ({ad, setAd}) => {
         onChange={handleChange}
       />
       <label htmlFor={`screenState_${screenState.ref}`}>
-        <CategoryCard name={screenState.name} />
+        <CategoryCard imgRef={screenState.ref} name={screenState.name} />
       </label>
     </div>
   ));
 
   return (
     <div>
-      <Card isHover={false}>
+      <Card isHover={false} className="container-card">
         <h4>Quel est l&#39état de l&#39écran de votre {ad.familyType} ?</h4>
-        {screenStates[1] ? listScreenStates : <div>loading</div>}
+        <div className="ad-list category-list">
+          {screenStates[1] ? listScreenStates : <div>loading</div>}
+        </div>
       </Card>
     </div>
   );

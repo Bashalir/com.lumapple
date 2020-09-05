@@ -3,9 +3,8 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 
 import Card from '../../../atoms/card/Card';
-import CategoryCard from '../../../molecules/CategoryCard/CategoryCard';
-
 import {firebaseAuth} from '../../../../providers/AuthProvider';
+import ColorCard from '../../../molecules/ColorCard/ColorCard';
 
 const SelectColor = ({ad, setAd}) => {
   const {user, token} = useContext(firebaseAuth);
@@ -46,7 +45,7 @@ const SelectColor = ({ad, setAd}) => {
   };
 
   const listColors = colors.map(color => (
-    <div key={color.ref}>
+    <div className="card-button" key={color.ref}>
       <input
         type="radio"
         id={color.ref}
@@ -56,16 +55,18 @@ const SelectColor = ({ad, setAd}) => {
         onChange={handleChange}
       />
       <label htmlFor={color.ref}>
-        <CategoryCard name={color.name_fr} />
+        <ColorCard name={color.name_fr} colorRGB={color.rgb} />
       </label>
     </div>
   ));
 
   return (
     <div>
-      <Card isHover={false}>
+      <Card isHover={false} className="container-card">
         <h4>Quel est la couleur de votre {ad.familyType} ?</h4>
-        {colors[1] ? listColors : <div>loading</div>}
+        <div className="ad-list category-list">
+          {colors[1] ? listColors : <div>loading</div>}
+        </div>
       </Card>
     </div>
   );

@@ -21,8 +21,11 @@ const AdForm = () => {
   return (
     <StyledAdForm>
       {/* {!user.loggedIn && <HelloAdForm />} */}
+
       <SelectCategory ad={ad} setAd={setAd} />
+
       {ad.category && <SelectFamily ad={ad} setAd={setAd} />}
+
       {ad.family && <SelectColor ad={ad} setAd={setAd} />}
       {ad.color && <SelectStorage ad={ad} setAd={setAd} />}
       {ad.storage && <SelectScreenStates ad={ad} setAd={setAd} />}

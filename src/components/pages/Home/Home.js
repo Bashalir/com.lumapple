@@ -4,17 +4,14 @@ import PropTypes from 'prop-types';
 import PageTemplate from '../../templates/PageTemplate/PageTemplate';
 import NavBar from '../../organisms/navbar/NavBar';
 import Footer from '../../organisms/Footer/Footer';
-
-function Main() {
-  return <div>MAIN</div>;
-}
+import AdList from '../../organisms/AdList/AdList';
 
 function Home({routes}) {
   return (
     <PageTemplate
       routes={routes}
       header={<NavBar />}
-      main={<Main />}
+      main={<AdList />}
       footer={<Footer />}
     />
   );

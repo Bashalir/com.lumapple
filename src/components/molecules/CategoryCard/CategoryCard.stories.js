@@ -8,6 +8,6 @@ export default {
   title: 'CategoryCard',
 };
 
-export const Default = () => <CategoryCard name="Apple" image={Macbook} />;
+export const Default = () => <CategoryCard name="iPhone" imgRef="iphone" />;
 
 Default.parameters = {backgrounds: {default: 'default'}};

@@ -4,12 +4,19 @@ import PropTypes from 'prop-types';
 import StyledCard from './styles/StyledCard';
 import {defaultTheme} from '../../../themes';
 
-export default function Card({textColor, backgroundColor, children, isHover}) {
+export default function Card({
+  textColor,
+  backgroundColor,
+  children,
+  isHover,
+  ...props
+}) {
   return (
     <StyledCard
       textColor={textColor}
       backgroundColor={backgroundColor}
       isHover={isHover}
+      {...props}
     >
       {children}
     </StyledCard>
@@ -25,8 +32,8 @@ export const CardImage = ({image, name, textColor, backgroundColor}) => {
 };
 
 CardImage.propTypes = {
-  image: PropTypes.object,
-  name: PropTypes.object,
+  image: PropTypes.string,
+  name: PropTypes.string,
   textColor: PropTypes.string,
   backgroundColor: PropTypes.string,
 };

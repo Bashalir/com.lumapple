@@ -8,12 +8,17 @@ import Connection from '../components/pages/Connection/Connection';
 import SignUp from '../components/organisms/SignUp/SignUp';
 import Account from '../components/pages/Account/Account';
 import SellNow from '../components/pages/SellNow/SellNow';
+import Ad from '../components/pages/Ad/Ad';
 
 const routes = [
   {
     path: '/',
     component: Home,
     routes: [
+      {
+        path: '/annonce/:id',
+        component: Ad,
+      },
       {
         path: '/se-connecter',
         component: Connection,

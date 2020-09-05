@@ -47,7 +47,7 @@ const SelectCategory = ({ad, setAd}) => {
   };
 
   const listCategories = categories.map(category => (
-    <div key={category.ref}>
+    <div className="card-button" key={category.ref}>
       <input
         type="radio"
         id={category.ref}
@@ -57,16 +57,18 @@ const SelectCategory = ({ad, setAd}) => {
         onChange={handleChange}
       />
       <label htmlFor={category.ref}>
-        <CategoryCard name={category.type} />
+        <CategoryCard name={category.type} imgRef={category.ref} />
       </label>
     </div>
   ));
 
   return (
     <div>
-      <Card isHover={false}>
+      <Card isHover={false} className="container-card">
         <h4>Que souhaitez-vous vendre ?</h4>
-        {categories[1] ? listCategories : <div>loading</div>}
+        <div className="ad-list category-list">
+          {categories[1] ? listCategories : <div>loading</div>}
+        </div>
       </Card>
     </div>
   );

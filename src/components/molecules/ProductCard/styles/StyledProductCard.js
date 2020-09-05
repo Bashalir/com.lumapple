@@ -5,10 +5,13 @@ import StyledProductPhoto from './StyledProductPhoto';
 import StyledProductInfos from './StyledProductInfos';
 
 const StyledProductCard = styled.div`
+  height: 120px;
+  width: 100%;
   :active {
+    z-index: 1;
     ${StyledProductInfos},
     img {
-      transform: scale(0.98);
+      transform: scale(0.995);
     }
   }
 
@@ -29,10 +32,11 @@ const StyledProductCard = styled.div`
     }
     :hover {
       ::after {
+        z-index: 2;
         background-color: transparent;
       }
       ${StyledProductPhoto} {
-        z-index: -1;
+        z-index: 1;
       }
     }
   }

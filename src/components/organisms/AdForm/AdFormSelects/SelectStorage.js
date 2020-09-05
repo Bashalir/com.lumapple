@@ -46,7 +46,7 @@ const SelectStorage = ({ad, setAd}) => {
   };
 
   const listStorages = storages.map(storage => (
-    <div key={storage.capacity}>
+    <div className="card-button" key={storage.capacity}>
       <input
         type="radio"
         id={storage.capacity}
@@ -55,16 +55,18 @@ const SelectStorage = ({ad, setAd}) => {
         onChange={handleChange}
       />
       <label htmlFor={storage.capacity}>
-        <CategoryCard name={`${storage.capacity} Go`} />
+        <CategoryCard imgRef={'storage'} name={`${storage.capacity} Go`} />
       </label>
     </div>
   ));
 
   return (
     <div>
-      <Card isHover={false}>
+      <Card isHover={false} className="container-card">
         <h4>Quel est le stockage de votre {ad.familyType} ?</h4>
-        {storages && storages[1] ? listStorages : <div>loading</div>}
+        <div className="ad-list category-list">
+          {storages && storages[1] ? listStorages : <div>loading</div>}
+        </div>
       </Card>
     </div>
   );
