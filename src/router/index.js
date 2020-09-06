@@ -10,12 +10,17 @@ import Account from '../components/pages/Account/Account';
 import SellNow from '../components/pages/SellNow/SellNow';
 import Ad from '../components/pages/Ad/Ad';
 import AdForm from '../components/organisms/AdForm/AdForm';
+import AdList from '../components/organisms/AdList/AdList';
 
 const routes = [
   {
     path: '/',
     component: Home,
     routes: [
+      {
+        path: '/annonces/:page',
+        component: AdList,
+      },
       {
         path: '/annonce/:id',
         component: Ad,
