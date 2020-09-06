@@ -9,6 +9,7 @@ import SignUp from '../components/organisms/SignUp/SignUp';
 import Account from '../components/pages/Account/Account';
 import SellNow from '../components/pages/SellNow/SellNow';
 import Ad from '../components/pages/Ad/Ad';
+import AdForm from '../components/organisms/AdForm/AdForm';
 
 const routes = [
   {
@@ -34,7 +35,7 @@ const routes = [
       },
       {
         path: '/vendez-maintenant',
-        component: SellNow,
+        component: AdForm,
       },
     ],
   },

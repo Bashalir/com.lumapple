@@ -1,17 +1,17 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 import {defaultTheme} from '../../../../themes';
 import StyledCard from '../../../atoms/card/styles/StyledCard';
 import StyledCategoryCard from '../../../molecules/CategoryCard/styles/StyledCategoryCard';
+import StyledButton from '../../../atoms/button/styles/StyledButton';
 
 const StyledAdForm = styled.div`
+  width: 100%;
+
   h4 {
     color: ${defaultTheme.textColor};
   }
 
-  input {
-    opacity: 0;
-  }
   .ad-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -19,6 +19,9 @@ const StyledAdForm = styled.div`
   }
 
   .card-button {
+    input {
+      opacity: 0;
+    }
     :hover {
       ${StyledCard} {
         ::before {
@@ -30,15 +33,21 @@ const StyledAdForm = styled.div`
       }
     }
   }
+
   .container-card {
     width: auto;
     height: auto;
     padding: 20px;
     margin-bottom: 20px;
 
+    ${StyledButton} {
+      margin: 20px;
+    }
+
     h4 {
       margin: 20px;
     }
+
     input[type='radio']:checked + label {
       figure {
         ${StyledCard} {
@@ -55,10 +64,46 @@ const StyledAdForm = styled.div`
       }
     }
   }
+  .feature {
+    display: flex;
+    flex-flow: column;
+    text-align: left;
+    margin-bottom: 20px;
+
+    span {
+      margin-bottom: 5px;
+    }
+  }
+
+  form {
+    button {
+      margin: 0 auto;
+      height: 45px;
+    }
+    p {
+      font-size: ${defaultTheme.typeScale.helper};
+      margin: 20px;
+      color: ${defaultTheme.statusErrorColor};
+    }
+  }
 
   ${StyledCard} {
-    span {
-      min-height: 32px;
+    label {
+      span {
+        min-height: 32px;
+      }
+    }
+  }
+
+  @media (min-width: ${defaultTheme.breakpoint}) {
+    .ad-list {
+      display: flexbox;
+      row-gap: 20px;
+      justify-content: center;
+    }
+
+    .container-card {
+      margin: 0 20px;
     }
   }
 `;

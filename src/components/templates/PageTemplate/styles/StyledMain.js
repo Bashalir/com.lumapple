@@ -11,8 +11,8 @@ const StyledMain = styled.section`
   padding: 0px;
   background-color: ${defaultTheme.backgroundDefaultColor};
 
-  /* 86px header 60px footer 40px margin-top + margin-bottom */
-  min-height: calc(100vh - (86px + 60px + 40px));
+  /* 50px header 60px footer 40px margin-top + margin-bottom */
+  min-height: calc(100vh - (50px + 60px + 40px));
   max-height: 100%;
 
   @media (min-width: ${defaultTheme.breakpoint}) {

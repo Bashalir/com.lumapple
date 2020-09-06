@@ -16,7 +16,6 @@ const SelectCategory = ({ad, setAd}) => {
   const handleChange = e => {
     setCategory({category: e.target.value});
     setAd({
-      ...ad,
       category: e.target.value,
       ref: e.target.id,
       type: e.target.title,
@@ -25,7 +24,7 @@ const SelectCategory = ({ad, setAd}) => {
 
   useEffect(() => {
     getCategories();
-  }, [ad]);
+  }, [ad.category]);
 
   const getCategories = () => {
     axios

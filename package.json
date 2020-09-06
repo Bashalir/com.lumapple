@@ -12,6 +12,7 @@
   },
   "scripts": {
     "dev": "webpack --watch",
+    "dev:debug": "webpack-dev-server --watch --devtool source-map",
     "dev-server": "webpack-dev-server --hot --inline",
     "build": "webpack",
     "lint": "eslint .",

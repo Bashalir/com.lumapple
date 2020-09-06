@@ -25,7 +25,7 @@ const SelectHullStates = ({ad, setAd}) => {
   ];
 
   const listHullStates = hullStates.map(hullState => (
-    <div key={hullState.id}>
+    <div className="card-button" key={hullState.id}>
       <input
         type="radio"
         id={`hullState_${hullState.ref}`}
@@ -35,16 +35,18 @@ const SelectHullStates = ({ad, setAd}) => {
         onChange={handleChange}
       />
       <label htmlFor={`hullState_${hullState.ref}`}>
-        <CategoryCard name={hullState.name} />
+        <CategoryCard imgRef={hullState.ref} name={hullState.name} />
       </label>
     </div>
   ));
 
   return (
     <div>
-      <Card isHover={false}>
+      <Card isHover={false} className="container-card">
         <h4>Quel est l&#39;état général de votre {ad.familyType} ?</h4>
-        {hullStates[1] ? listHullStates : <div>loading</div>}
+        <div className="ad-list category-list">
+          {hullStates[1] ? listHullStates : <div>loading</div>}
+        </div>
       </Card>
     </div>
   );

@@ -24,7 +24,7 @@ const SelectStorage = ({ad, setAd}) => {
 
   useEffect(() => {
     getStorages();
-  }, [ad]);
+  }, [ad.family, ad.storage]);
 
   const getStorages = () => {
     axios

@@ -7,18 +7,20 @@ import StyledProductPhoto from './styles/StyledProductPhoto';
 import StyledProductInfos from './styles/StyledProductInfos';
 
 export default function ProductCard({
-  photo,
+  imgRef,
   name,
   title,
   short_description,
   description,
   price,
 }) {
+  const urlImage = `https://res.cloudinary.com/lumapple/image/upload/v1599253253/img/${imgRef}.png`;
+
   return (
     <StyledProductCard>
       <Card>
         <StyledProductPhoto>
-          <img src={photo} alt={name} />
+          <img src={urlImage} alt={name} />
         </StyledProductPhoto>
         <StyledProductInfos>
           <div className="product_description">
@@ -37,7 +39,7 @@ export default function ProductCard({
 }
 
 ProductCard.propTypes = {
-  photo: PropTypes.object,
+  imgRef: PropTypes.string,
   name: PropTypes.string,
   title: PropTypes.string,
   short_description: PropTypes.string,

@@ -26,7 +26,7 @@ const SelectFamily = ({ad, setAd}) => {
 
   useEffect(() => {
     getFamilies();
-  }, [ad]);
+  }, [ad.category, ad.family]);
 
   const getFamilies = () => {
     axios
@@ -48,7 +48,7 @@ const SelectFamily = ({ad, setAd}) => {
   };
 
   const listFamilies = families.map(family => (
-    <div key={family.ref}>
+    <div className="card-button" key={family.ref}>
       <input
         type="radio"
         key={family.ref}

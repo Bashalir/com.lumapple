@@ -28,7 +28,7 @@ const AdList = () => {
     <Link to={`/annonce/${ad.id}`} key={ad.id}>
       <ProductCard
         key={ad.id}
-        photo={MacbookPro}
+        imgRef={ad.Family.ref}
         name={ad.Family.type}
         title={ad.Family.type}
         short_description={ad.Family.type}

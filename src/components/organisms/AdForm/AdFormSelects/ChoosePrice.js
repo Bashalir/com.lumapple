@@ -3,6 +3,8 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers';
+import {useHistory} from 'react-router-dom';
+import {useToasts} from 'react-toast-notifications';
 
 import Card from '../../../atoms/card/Card';
 import Input from '../../../atoms/input/Input';
@@ -13,12 +15,15 @@ import {isEmpty} from 'lodash.isempty';
 import {firebaseAuth} from '../../../../providers/AuthProvider';
 
 const ChoosePrice = ({ad, setAd}) => {
-  const {user, token} = useContext(firebaseAuth);
-
-  const [price, setPrice] = useState();
+  const {addToast} = useToasts();
+  const history = useHistory();
   const {handleSubmit, register, errors} = useForm({
     resolver: yupResolver(choosePriceSchema),
   });
+
+  const {user, token} = useContext(firebaseAuth);
+  const {errorFetch, setErrorFetch} = useState();
+  const [price, setPrice] = useState();
 
   const handleChange = e => {
     setPrice(e.target.value);
@@ -44,29 +49,42 @@ const ChoosePrice = ({ad, setAd}) => {
           },
         },
       )
+      .then(() => {
+        // handle success
+
+        addToast('Votre annonce a bien été posté.', {
+          appearance: 'success',
+          autoDismiss: true,
+        });
+      })
       .catch(error => {
+        addToast('Erreur', {
+          appearance: 'error',
+          autoDismiss: true,
+        });
         console.log('Erreur : ', error);
       });
   };
 
   const onSubmit = async () => {
-    console.log('handleCreateAd');
     //wait to signup
     await handleCreateAd();
-    //push home
-    // props.history.push('/');
+
+    await history.push('/');
   };
 
   return (
     <div>
-      <Card isHover={false}>
+      <Card isHover={false} className="container-card">
         <h4>Quel est votre prix ?</h4>
-        <span>
-          {ad.familyRef} {ad.color && ad.color}{' '}
-          {ad.capacity && `${ad.capacity} Go`}
-        </span>
-        <span>État de l&#39;écran : {ad.screenStateTitle}</span>
-        <span>État général : {ad.hullStateTitle}</span>
+        <div className="feature">
+          <span>{ad.familyType} </span>
+          <span>{ad.color && ad.colorRef}</span>
+          <span> {ad.capacity && `${ad.capacity} Go`}</span>
+
+          <span>État de l&#39;écran : {ad.screenStateTitle}</span>
+          <span>État général : {ad.hullStateTitle}</span>
+        </div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Input
             type="number"

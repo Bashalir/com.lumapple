@@ -23,7 +23,7 @@ const SelectColor = ({ad, setAd}) => {
 
   useEffect(() => {
     getColors();
-  }, [ad]);
+  }, [ad.family, ad.color]);
 
   const getColors = () => {
     axios

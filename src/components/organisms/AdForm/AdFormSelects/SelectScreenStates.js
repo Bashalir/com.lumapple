@@ -43,7 +43,7 @@ const SelectScreenStates = ({ad, setAd}) => {
   return (
     <div>
       <Card isHover={false} className="container-card">
-        <h4>Quel est l&#39état de l&#39écran de votre {ad.familyType} ?</h4>
+        <h4>Quel est l&#39;état de l&#39;écran de votre {ad.familyType} ?</h4>
         <div className="ad-list category-list">
           {screenStates[1] ? listScreenStates : <div>loading</div>}
         </div>

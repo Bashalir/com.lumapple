@@ -13,8 +13,9 @@ const StyledProductPhoto = styled.div`
     display: block;
     max-height: 120px;
     max-width: 120px;
-    width: auto;
-    height: auto;
+    align-self: center;
+    width: 90%;
+    height: 90%;
     border-top-left-radius: 1em;
     border-bottom-left-radius: 1em;
   }

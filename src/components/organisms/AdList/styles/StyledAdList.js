@@ -6,7 +6,7 @@ import StyledProductCard from '../../../molecules/ProductCard/styles/StyledProdu
 const StyledAdList = styled.div`
   width: 100%;
   ${StyledProductCard} {
-    margin: 20px;
+    margin-bottom: 20px;
   }
 `;
 
