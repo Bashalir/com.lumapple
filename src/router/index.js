@@ -11,6 +11,8 @@ import SellNow from '../components/pages/SellNow/SellNow';
 import Ad from '../components/pages/Ad/Ad';
 import AdForm from '../components/organisms/AdForm/AdForm';
 import AdList from '../components/organisms/AdList/AdList';
+import AdFind from '../components/pages/AdFind/AdFind';
+import AdPage from '../components/pages/AdPage/AdPage';
 
 const routes = [
   {
@@ -19,7 +21,7 @@ const routes = [
     routes: [
       {
         path: '/annonces/:page',
-        component: AdList,
+        component: AdPage,
       },
       {
         path: '/annonce/:id',
@@ -33,7 +35,10 @@ const routes = [
         path: '/s-enregistrer',
         component: SignUp,
       },
-
+      {
+        path: '/rechercher/:search',
+        component: AdFind,
+      },
       {
         path: '/mon-compte',
         component: Account,
