@@ -10,20 +10,23 @@ const StyledLeftMenu = styled.div`
   width: 80%;
   background-color: ${defaultTheme.backgroundDefaultColor};
   color: ${defaultTheme.textPrimaryColor};
-
+  a {
+    color: ${defaultTheme.textPrimaryColor};
+  }
   span {
     cursor: pointer;
-    margin: 0 10px;
+    margin: 20px;
     font-size: ${defaultTheme.typeScale.helper};
 
     img {
-      margin: 0 10px;
+      margin: 20px;
       height: 24px;
       width: 24px;
     }
   }
 
   ${StyledLogo} {
+    margin: 20px;
     justify-content: center;
     justify-self: center;
     display: flex;
@@ -34,7 +37,6 @@ const StyledLeftMenu = styled.div`
       height: 3rem;
       width: 10rem;
       align-self: center;
-      margin: 0;
     }
   }
 `;

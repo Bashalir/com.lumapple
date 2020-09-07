@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import {defaultTheme} from '../../../../themes';
 import StyledMenuBurger from '../../MenuBurger/styles/StyledMenuBurger';
+import StyledLeftMenu from '../../../molecules/LeftMenu/styles/StyledLeftMenu';
 
 const StyledNavBar = styled.div`
   nav {
@@ -17,7 +18,7 @@ const StyledNavBar = styled.div`
     .logo_lumapple {
       display: flex;
       height: 45px;
-      justify-self: center;
+      justify-content: center;
       margin: 0 10px;
       .logo {
         align-self: center;
@@ -31,6 +32,12 @@ const StyledNavBar = styled.div`
     }
     .sign_in {
       display: none;
+    }
+
+    ${StyledLeftMenu} {
+      .logo_lumapple {
+        margin: 20px;
+      }
     }
 
     @media (min-width: ${defaultTheme.breakpoint}) {

@@ -13,8 +13,8 @@ const AdList = ({ads}) => {
         imgRef={ad.Family.ref}
         name={ad.Family.type}
         title={ad.Family.type}
-        short_description={ad.Family.type}
-        description={ad.Family.type}
+        short_description={ad.Family.short_description}
+        description={ad.Family.description}
         price={`${ad.price} €`}
       />
     </Link>

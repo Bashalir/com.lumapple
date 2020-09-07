@@ -35,13 +35,14 @@ const ChoosePrice = ({ad, setAd}) => {
       .post(
         `http://localhost:3030/api/ads`,
         {
-          userId: user.userApiId,
-          familyId: ad.family,
-          screenStateId: ad.screenState,
-          hullStateId: ad.hullState,
-          price,
-          colorId: ad.color ? ad.color : null,
-          storageId: ad.storage ? ad.storage : null,
+          data: {
+            familyId: ad.family,
+            screenStateId: ad.screenState,
+            hullStateId: ad.hullState,
+            price,
+            colorId: ad.color ? ad.color : null,
+            storageId: ad.storage ? ad.storage : null,
+          },
         },
         {
           headers: {
@@ -56,6 +57,7 @@ const ChoosePrice = ({ad, setAd}) => {
           appearance: 'success',
           autoDismiss: true,
         });
+        history.push('/');
       })
       .catch(error => {
         addToast('Erreur', {
@@ -70,7 +72,7 @@ const ChoosePrice = ({ad, setAd}) => {
     //wait to signup
     await handleCreateAd();
 
-    await history.push('/');
+    // await history.push('/');
   };
 
   return (

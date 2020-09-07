@@ -13,7 +13,7 @@ const StyledMenuBurger = styled.div`
 const menuOpen = css`
   .left-menu {
     display: block;
-    z-index: 2;
+    z-index: 10;
     cursor: pointer;
     position: fixed;
     bottom: 0;
@@ -23,7 +23,7 @@ const menuOpen = css`
     background: rgba(0, 0, 0, 0.6);
 
     ${StyledLeftMenu} {
-      z-index: 3;
+      z-index: 10;
       cursor: default;
       display: grid;
       position: fixed;

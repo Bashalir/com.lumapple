@@ -11,7 +11,7 @@ import Input from '../../atoms/input/Input';
 import Button from '../../atoms/button/Button';
 import {defaultTheme} from '../../../themes';
 import {useToasts} from 'react-toast-notifications';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 
 const schema = yup.object().shape({
   email: yup
@@ -32,8 +32,30 @@ const SignIn = () => {
     resolver: yupResolver(schema),
   });
 
+  const {addToast} = useToasts();
+  const history = useHistory();
+
   const onSubmit = () => {
-    handleSignin();
+    try {
+      const sendSignIn = handleSignin();
+      !errors[0] && history.push('/');
+      !errors[0]
+        ? addToast('Bienvenue chez Lumapple', {
+            appearance: 'success',
+            autoDismiss: true,
+          })
+        : addToast(`Erreur d'identiifant ou de mot de passe`, {
+            appearance: 'error',
+            autoDismiss: true,
+          });
+    } catch {
+      addToast(`Erreur d'identiifant ou de mot de passe`, {
+        appearance: 'error',
+        autoDismiss: true,
+      });
+      history.push('/se-connecter');
+    }
+
     console.log(inputs.email, inputs.password);
   };
 

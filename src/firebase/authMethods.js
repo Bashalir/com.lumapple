@@ -1,7 +1,6 @@
 import firebaseconfig from './firebaseIndex';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-
 import axios from 'axios';
 
 export const authMethods = {
@@ -56,7 +55,6 @@ export const authMethods = {
       .then(async token => {
         data = {
           providerId: 'data.email',
-          firebaseId: token,
           displayName: data.name,
           firstName: data.firstname,
           lastName: data.lastname,
@@ -68,7 +66,7 @@ export const authMethods = {
             {data},
             {
               headers: {
-                authorization: data.token,
+                authorization: token,
               },
             },
           )

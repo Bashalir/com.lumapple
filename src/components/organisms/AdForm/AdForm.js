@@ -20,7 +20,7 @@ const AdForm = () => {
 
   return (
     <StyledAdForm>
-      {/* {!user.loggedIn && <HelloAdForm />} */}
+      {!user.loggedIn && <HelloAdForm />}
 
       <SelectCategory ad={ad} setAd={setAd} />
 

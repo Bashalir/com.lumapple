@@ -103,7 +103,7 @@ const StyledAdForm = styled.div`
     }
 
     .container-card {
-      margin: 0 20px;
+      margin-bottom: 20px;
     }
   }
 `;

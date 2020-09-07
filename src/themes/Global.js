@@ -15,10 +15,20 @@ html {
 
 *,*:before, *:after {
   box-sizing: inherit;
+  text-decoration: none;
 }
 
 body {
-  font-family: ${primaryFont}
+  font-family: ${primaryFont};
+
+  .react-toast-notifications__container{
+    margin-top:25px;
+  }
+
+@media (min-width: ${defaultTheme.breakpoint}) {
+  .react-toast-notifications__container{
+   
+  }
 }
 
 a:link {

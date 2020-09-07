@@ -15,6 +15,9 @@ const StyledProductCard = styled.div`
     }
   }
 
+  img {
+    object-fit: contain;
+  }
   ${StyledCard} {
     height: 120px;
     width: 100%;

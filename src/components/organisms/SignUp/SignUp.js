@@ -3,6 +3,8 @@ import {firebaseAuth} from '../../../providers/AuthProvider';
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers';
 import isEmpty from 'lodash.isempty';
+import {useToasts} from 'react-toast-notifications';
+import {useHistory} from 'react-router-dom';
 
 import Card from '../../atoms/card/Card';
 import StyledSignUp from './styles/StyledSignUp';
@@ -19,11 +21,24 @@ const SignUp = () => {
     reValidateMode: 'onChange',
     resolver: yupResolver(SignUpSchema),
   });
+  const {addToast} = useToasts();
+  const history = useHistory();
 
   const onSubmit = async () => {
-    console.log('handleSubmit');
-    //wait to signup
-    await handleSignup();
+    try {
+      await handleSignup();
+      await addToast('Votre compte a bien été crée.', {
+        appearance: `success`,
+        autoDismiss: true,
+      });
+    } catch (error) {
+      addToast(`${error}`, {
+        appearance: 'error',
+        autoDismiss: true,
+      });
+    } finally {
+      history.push('/');
+    }
     //push home
     // props.history.push('/');
   };
