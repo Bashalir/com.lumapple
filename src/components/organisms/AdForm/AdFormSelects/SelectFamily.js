@@ -3,7 +3,6 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 
 import Card from '../../../atoms/card/Card';
-import CategoryCard from '../../../molecules/CategoryCard/CategoryCard';
 
 import {firebaseAuth} from '../../../../providers/AuthProvider';
 import ModelCard from '../../../molecules/ModelCard/ModelCard';

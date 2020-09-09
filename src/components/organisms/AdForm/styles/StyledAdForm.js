@@ -4,6 +4,7 @@ import {defaultTheme} from '../../../../themes';
 import StyledCard from '../../../atoms/card/styles/StyledCard';
 import StyledCategoryCard from '../../../molecules/CategoryCard/styles/StyledCategoryCard';
 import StyledButton from '../../../atoms/button/styles/StyledButton';
+import HelloAdForm from '../../HelloAdForm/HelloAdForm';
 
 const StyledAdForm = styled.div`
   width: 100%;
@@ -16,6 +17,11 @@ const StyledAdForm = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     row-gap: 20px;
+  }
+
+  .connection {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
   .card-button {

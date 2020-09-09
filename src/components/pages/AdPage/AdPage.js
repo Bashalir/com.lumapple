@@ -13,7 +13,7 @@ const AdPage = () => {
   const [numberOfAd, setNumberOfAd] = useState([]);
   const {page} = useParams();
 
-  const limitPerPage = 2;
+  const limitPerPage = 10;
   const numberOfPages = Math.ceil(numberOfAd / limitPerPage);
 
   useEffect(() => {

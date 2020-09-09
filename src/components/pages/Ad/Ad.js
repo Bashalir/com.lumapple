@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import {firebaseAuth} from '../../../providers/AuthProvider';
 import Card from '../../atoms/card/Card';
+import AdSheet from '../../organisms/AdSheet/AdSheet';
 
 const Ad = () => {
   const [ad, setAd] = useState();
@@ -18,14 +19,7 @@ const Ad = () => {
   const url = `http://localhost:3030/api/ads/${id}`;
   const getAd = () => {
     axios
-      .get(url, {
-        crossDomain: true,
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Headers': '*',
-          'Access-Control-Allow-Methods': '*',
-        },
-      })
+      .get(url, {})
       .then(response => {
         setAd(response.data);
       })
@@ -33,7 +27,7 @@ const Ad = () => {
         console.log('Erreur : ', error);
       });
   };
-  return <Card isHover={false}>ID :{ad && ad.id}</Card>;
+  return <AdSheet ad={ad} />;
 };
 
 export default Ad;
