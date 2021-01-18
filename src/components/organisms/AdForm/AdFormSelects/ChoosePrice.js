@@ -33,7 +33,7 @@ const ChoosePrice = ({ad, setAd}) => {
     console.log('handleSignup');
     axios
       .post(
-        `http://localhost:3030/api/ads`,
+        `${process.env.REACT_APP_API_PATH}/api/ads`,
         {
           data: {
             familyId: ad.family,

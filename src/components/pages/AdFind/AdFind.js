@@ -17,7 +17,7 @@ const AdFind = () => {
   }, [search]);
 
   const textFind = search.replace('texte=', '');
-  const urlAds = `http://localhost:3030/api/ads/find?text=${textFind}`;
+  const urlAds = `${process.env.REACT_APP_API_PATH}/api/ads/find?text=${textFind}`;
 
   const getAds = () => {
     axios

@@ -62,7 +62,7 @@ export const authMethods = {
         };
         axios
           .post(
-            'http://localhost:3030/api/users',
+            process.env.REACT_APP_API_PATH + '/api/users',
             {data},
             {
               headers: {

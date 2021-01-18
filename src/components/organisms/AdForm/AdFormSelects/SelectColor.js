@@ -28,7 +28,7 @@ const SelectColor = ({ad, setAd}) => {
   const getColors = () => {
     axios
       .get(
-        `http://localhost:3030/api/colors?ref=${ad.familyRef}`,
+        `${process.env.REACT_APP_API_PATH}/api/colors?ref=${ad.familyRef}`,
         {},
         {
           headers: {

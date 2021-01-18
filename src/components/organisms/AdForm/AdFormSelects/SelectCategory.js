@@ -29,7 +29,7 @@ const SelectCategory = ({ad, setAd}) => {
   const getCategories = () => {
     axios
       .get(
-        'http://localhost:3030/api/categories',
+        process.env.REACT_APP_API_PATH + '/api/categories',
         {},
         {
           headers: {

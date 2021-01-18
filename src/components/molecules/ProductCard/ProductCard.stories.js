@@ -1,6 +1,5 @@
 import React from 'react';
 import ProductCard from './ProductCard';
-
 import MacbookPro from './img/macbook_pro.jpeg';
 
 export default {

@@ -30,7 +30,7 @@ const SelectFamily = ({ad, setAd}) => {
   const getFamilies = () => {
     axios
       .get(
-        `http://localhost:3030/api/families?ref=${ad.ref}`,
+        `${process.env.REACT_APP_API_PATH}/api/families?ref=${ad.ref}`,
         {},
         {
           headers: {

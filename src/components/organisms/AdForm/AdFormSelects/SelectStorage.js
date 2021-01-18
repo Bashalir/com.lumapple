@@ -29,7 +29,7 @@ const SelectStorage = ({ad, setAd}) => {
   const getStorages = () => {
     axios
       .get(
-        `http://localhost:3030/api/storages?ref=${ad.familyRef}`,
+        `${process.env.REACT_APP_API_PATH}/api/storages?ref=${ad.familyRef}`,
         {},
         {
           headers: {

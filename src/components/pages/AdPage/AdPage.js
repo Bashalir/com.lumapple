@@ -21,8 +21,8 @@ const AdPage = () => {
   }, [page]);
 
   const urlAds = !page
-    ? 'http://localhost:3030/api/ads'
-    : `http://localhost:3030/api/ads?page=${page - 1}`;
+    ? process.env.REACT_APP_API_PATH + '/api/ads'
+    : `${process.env.REACT_APP_API_PATH}/api/ads?page=${page - 1}`;
 
   const getAds = () => {
     axios

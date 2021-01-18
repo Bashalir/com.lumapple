@@ -16,7 +16,7 @@ const Ad = () => {
     getAd();
   }, []);
 
-  const url = `http://localhost:3030/api/ads/${id}`;
+  const url = `${process.env.REACT_APP_API_PATH}/api/ads/${id}`;
   const getAd = () => {
     axios
       .get(url, {})
