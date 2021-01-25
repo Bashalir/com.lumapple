@@ -8,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
 ${reset}
 ${normalize()}
 
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@800&display=swap');
 html {
   font-size: 16px;
   box-sizing: border-box;
